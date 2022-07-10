@@ -20,6 +20,7 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 -keep class com.example.buglibrary.MyButton
+-keep class com.example.buglibrary.MyListener
 -keep class com.example.buglibrary.MyButton
 {
     public <methods>;
