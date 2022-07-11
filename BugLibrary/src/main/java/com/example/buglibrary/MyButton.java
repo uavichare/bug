@@ -24,7 +24,7 @@ public class MyButton {
     public void OpenScreen(Context c) {
         Intent intent = null;
         try {
-            intent = new Intent(c,Class.forName("com.example.dubaiculturelibrary.TestActivity") );
+            intent = new Intent(c,Class.forName("com.dubaiculture.smartguide.MainActivity") );
             c.startActivity(intent);
 
         } catch (ClassNotFoundException e) {
