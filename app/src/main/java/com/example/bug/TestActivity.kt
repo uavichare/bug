@@ -11,8 +11,5 @@ class TestActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test)
 
-        val intent = Intent(this,MainActivity::class.java)
-        startActivity(intent)
-
     }
 }
