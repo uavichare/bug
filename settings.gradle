@@ -12,9 +12,6 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-
-
-
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
@@ -41,7 +38,6 @@ dependencyResolutionManagement {
         }
     }
 }
-
 rootProject.name = "Bug"
 include ':app'
 include ':BugLibrary'
