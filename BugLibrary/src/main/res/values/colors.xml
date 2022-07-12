@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="purple_500">#552678</color>
+    <color name="purple_700">#5E2E82</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="black_alpha_85">#D9000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="color_search">#8867A1</color>
+
+    <color name="color_selected_text">#5F2E7F</color>
+    <color name="text_color">#333333</color>
+
+    <!--Map color-->
+    <color name="symbolHaloColor">#80ffffff</color>
+    <color name="colorFood">#05AA47</color>
+    <color name="colorServices">#C85C24</color>
+    <color name="persian_blue">#3023AE</color>
+    <color name="brown">#463B37</color>
+    <color name="hot_pink">#FF61B6</color>
+    <color name="green">#8CBD3A</color>
+    <color name="tangerine">#F07F03</color>
+    <color name="dark_pink">#EB5788</color>
+    <color name="cool_grey">#75787B</color>
+    <color name="info_shadow">#26000000</color>
+    <color name="colorGrey">#75787B</color>
+    <color name="colorYellow">#FFBB00</color>
+
+
+</resources>

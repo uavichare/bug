@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_navigation"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_stops_board"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/purple_500"
+        android:clickable="true"
+        android:paddingStart="8dp"
+        android:paddingTop="12dp"
+        android:paddingEnd="12dp"
+        android:paddingBottom="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:rotation="180"
+            app:layout_constraintBottom_toBottomOf="@id/text_origin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/text_origin"
+            app:srcCompat="@drawable/ic_chevron_right"
+            app:tint="@color/white" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_initial_loc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tint="@color/color_search"
+            app:layout_constraintBottom_toBottomOf="@id/text_origin"
+            app:layout_constraintStart_toEndOf="@id/img_back"
+            app:layout_constraintTop_toTopOf="@id/text_origin"
+            app:srcCompat="@drawable/inital_location" />
+
+        <TextView
+            android:id="@+id/text_origin"
+            android:layout_width="0dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="8dp"
+            android:alpha="0.8"
+            android:background="@drawable/bg_search"
+            android:fontFamily="@font/dubai_regular"
+            android:gravity="center_vertical"
+            android:lines="1"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:text="@string/your_location"
+            android:textColor="@android:color/white"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/img_initial_loc"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_initial_des"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha=".72"
+            android:tint="@color/white"
+            app:layout_constraintBottom_toBottomOf="@id/text_destination"
+            app:layout_constraintStart_toEndOf="@id/img_back"
+            app:layout_constraintTop_toTopOf="@id/text_destination"
+            app:srcCompat="@drawable/map_pin" />
+
+        <TextView
+            android:id="@+id/text_destination"
+            android:layout_width="0dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:alpha="0.8"
+            android:background="@drawable/bg_search"
+            android:fontFamily="@font/dubai_regular"
+            android:gravity="center_vertical"
+            android:lines="1"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textColor="@android:color/white"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/img_initial_loc"
+            app:layout_constraintTop_toBottomOf="@id/text_origin"
+            tools:text="@string/your_location" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_disable"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/shap_differently_able"
+        android:drawablePadding="4dp"
+        android:elevation="1dp"
+        android:fontFamily="@font/dubai_regular"
+        android:padding="10dp"
+        android:text="@string/route_differently_abled"
+        android:textColor="#27AE60"
+        android:textSize="14sp"
+        app:drawableStartCompat="@drawable/disabled_toilet"
+        app:drawableTint="#27AE60"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layout_stops_board" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_eta"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/purple_500"
+        android:padding="12dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/image_eta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tint="@color/colorServices"
+            app:layout_constraintBottom_toBottomOf="@id/eta_text_route_detail"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/eta_text_origin"
+            app:srcCompat="@drawable/ic_chevron_right"
+            app:tint="@color/white" />
+
+        <TextView
+            android:id="@+id/eta_text_origin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            android:alpha="0.8"
+            android:fontFamily="@font/dubai_bold"
+            android:gravity="center_vertical"
+            android:lines="1"
+            android:paddingEnd="16dp"
+            android:text="Walking tp Zara"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@id/button_cancel"
+            app:layout_constraintStart_toEndOf="@id/image_eta"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/eta_text_route_detail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:alpha="0.8"
+            android:fontFamily="@font/dubai_regular"
+            android:gravity="center_vertical"
+            android:lines="1"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            app:drawableStartCompat="@drawable/ic_man_walk"
+            app:drawableTint="@color/white"
+            app:layout_constraintEnd_toStartOf="@id/button_cancel"
+            app:layout_constraintStart_toEndOf="@id/image_eta"
+            app:layout_constraintTop_toBottomOf="@id/eta_text_origin"
+            tools:text="your location" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_cancel"
+            android:layout_width="36dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:gravity="center"
+            android:padding="6dp"
+            app:cornerRadius="20dp"
+            app:icon="@drawable/ic_x"
+            app:iconTint="@color/purple_500"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageButton
+        android:id="@+id/btn_ar_mode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/constraintLayout_nav_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/button_view_in_ar" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout_nav_btn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_eta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:layout_marginStart="16dp"
+            android:drawableStart="@drawable/ic_man_walk"
+            android:drawablePadding="8dp"
+            android:fontFamily="@font/dubai_regular"
+            android:gravity="center_vertical"
+            android:text="6 mins | 100 mtrs"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            app:drawableTint="@color/color_selected_text"
+            app:layout_constraintBottom_toTopOf="@id/btn_steps"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_speak"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginBottom="16dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:visibility="gone"
+            app:icon="@drawable/ic_volume"
+            app:iconGravity="textStart"
+            app:iconTint="@android:color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btn_steps"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_goneMarginStart="12dp"
+            app:strokeColor="@android:color/black" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_steps"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="@font/dubai_regular"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="@string/steps"
+            android:textAllCaps="false"
+            android:textColor="@color/black_alpha_85"
+            android:textSize="16sp"
+            app:cornerRadius="5dp"
+            app:icon="@drawable/ic_step_list"
+            app:iconGravity="textStart"
+            app:iconPadding="8dp"
+            app:iconTint="@color/black_alpha_85"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btn_start_navigation"
+            app:layout_constraintStart_toEndOf="@+id/btn_speak"
+            app:strokeColor="@color/black_alpha_85"
+            app:strokeWidth="0.5dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_start_navigation"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginBottom="16dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/dubai_bold"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:lines="1"
+            android:text="@string/start_navigation"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:visibility="visible"
+            app:icon="@drawable/ic_direction"
+            app:iconGravity="textStart"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btn_stop_navigation"
+            app:layout_constraintStart_toEndOf="@+id/btn_steps"
+            app:layout_goneMarginEnd="16dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_stop_navigation"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/dubai_bold"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:lines="1"
+            android:text="@string/stop_navigation"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:visibility="gone"
+            app:icon="@drawable/ic_x"
+            app:iconGravity="textStart"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btn_start_navigation" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_recenter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:backgroundTint="@android:color/white"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout_nav_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_crosshair"
+        app:tint="@color/purple_500" />
+</androidx.constraintlayout.widget.ConstraintLayout>

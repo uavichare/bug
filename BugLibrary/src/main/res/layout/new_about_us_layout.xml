@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".ui.terms.TermsPrivacyFragment">
+
+    <include
+        android:id="@+id/layout_version"
+        layout="@layout/layout_app_info" />
+
+    <TextView
+        android:id="@+id/text_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="17dp"
+        android:drawablePadding="10dp"
+        android:fontFamily="@font/dubai_regular"
+        android:textColor="#D9000000"
+        android:textSize="14sp"
+        app:drawableStartCompat="@drawable/ic_new_icon"
+        tools:text="privacy" />
+
+
+    <TextView
+        android:id="@+id/about_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/dubai_bold"
+        android:textColor="#552678"
+        android:textSize="16sp" />
+
+
+    <TextView
+        android:id="@+id/about_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/dubai_regular"
+        android:textSize="16sp" />
+
+</LinearLayout>

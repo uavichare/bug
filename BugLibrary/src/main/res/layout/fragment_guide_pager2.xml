@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ui.guide.GuidePager2Fragment">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:alpha="0.6"
+        android:fitsSystemWindows="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#cc000000"
+            app:contentInsetEnd="0dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/dubai_bold"
+                android:text="@string/app_name"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ImageView
+        android:id="@+id/img_place_holder"
+        android:layout_width="0dp"
+        android:layout_height="342dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/poi_detail_dcaa"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/app_bar_layout" />
+
+
+    <LinearLayout
+        android:id="@+id/layout_header"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/gradient_poi_detail"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="@id/img_place_holder"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/text_poi_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:fontFamily="@font/dubai_bold"
+            android:text="@string/guide_poi_title"
+            android:textColor="@color/text_color"
+            android:textSize="16sp"
+            android:transitionName="@string/transition_title" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="38dp"
+            android:layout_height="wrap_content"
+            android:insetLeft="0dp"
+            android:insetRight="0dp"
+            android:padding="0dp"
+            android:visibility="invisible"
+            app:cornerRadius="24dp"
+            app:icon="@drawable/ic_direction"
+            app:iconGravity="textEnd"
+            app:iconPadding="0dp" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/frameLayout2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#CC000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/dubai_medium"
+        android:lineSpacingExtra="7sp"
+        android:text="@string/menu_favourite"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:transitionName="@string/transition_title"
+        app:layout_constraintBottom_toBottomOf="@id/button_favourite"
+        app:layout_constraintEnd_toStartOf="@id/button_favourite"
+        app:layout_constraintTop_toTopOf="@id/button_favourite" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_favourite"
+        android:layout_width="38dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="24dp"
+        android:backgroundTint="#B35F2E7F"
+        android:insetLeft="0dp"
+        android:insetRight="0dp"
+        android:padding="0dp"
+        app:cornerRadius="24dp"
+        app:icon="@drawable/ic_favorite"
+        app:iconGravity="textEnd"
+        app:iconPadding="0dp"
+        app:iconTint="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/layout_header"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingStart="16dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/layout_header">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/dubai_medium"
+            android:lineSpacingExtra="7sp"
+            android:text="@string/video"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:transitionName="@string/transition_title"
+            app:layout_constraintEnd_toEndOf="@id/button_video"
+            app:layout_constraintStart_toStartOf="@id/button_video"
+            app:layout_constraintTop_toBottomOf="@id/button_video" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/dubai_medium"
+            android:lineSpacingExtra="7sp"
+            android:text="@string/audio"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:transitionName="@string/transition_title"
+            app:layout_constraintEnd_toEndOf="@id/button_mic"
+            app:layout_constraintStart_toStartOf="@id/button_mic"
+            app:layout_constraintTop_toBottomOf="@id/button_mic" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/dubai_medium"
+            android:lineSpacingExtra="7sp"
+            android:text="@string/direction"
+            android:textColor="@color/white"
+            android:textSize="13sp"
+            android:transitionName="@string/transition_title"
+            app:layout_constraintEnd_toEndOf="@id/button_draw_route"
+            app:layout_constraintStart_toStartOf="@id/button_draw_route"
+            app:layout_constraintTop_toBottomOf="@id/button_draw_route" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_video"
+            android:layout_width="38dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:backgroundTint="@color/white"
+            android:insetLeft="0dp"
+            android:insetRight="0dp"
+            android:padding="0dp"
+            app:cornerRadius="24dp"
+            app:icon="@drawable/ic_video"
+            app:iconGravity="textEnd"
+            app:iconPadding="0dp"
+            app:iconTint="@color/color_selected_text"
+            app:layout_constraintEnd_toStartOf="@id/button_mic"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/color_selected_text" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_mic"
+            android:layout_width="38dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:backgroundTint="@color/white"
+            android:insetLeft="0dp"
+            android:insetRight="0dp"
+            android:padding="0dp"
+            app:cornerRadius="24dp"
+            app:icon="@drawable/ic_headphones"
+            app:iconGravity="textEnd"
+            app:iconPadding="0dp"
+            app:iconTint="@color/color_selected_text"
+            app:layout_constraintEnd_toStartOf="@id/button_draw_route"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/color_selected_text" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_draw_route"
+            android:layout_width="38dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:insetLeft="0dp"
+            android:insetRight="0dp"
+            android:padding="0dp"
+            app:cornerRadius="24dp"
+            app:icon="@drawable/ic_direction"
+            app:iconGravity="textEnd"
+            app:iconPadding="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/text_detail"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
+        android:fontFamily="@font/dubai_regular"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/img_place_holder" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

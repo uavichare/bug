@@ -11,10 +11,15 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
     }
+
 }
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
+            flatDir {
+                dirs "../libraries", "../commons/libs"
+            }
+
         google()
         mavenCentral()
         maven {
@@ -38,6 +43,7 @@ dependencyResolutionManagement {
         }
     }
 }
+
 rootProject.name = "Bug"
 include ':app'
 include ':BugLibrary'

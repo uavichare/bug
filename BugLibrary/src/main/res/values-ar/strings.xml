@@ -1,0 +1,173 @@
+<resources>
+    <string name="app_name">المرشد الذكي</string>
+
+
+    <!--Drawer menu-->
+    <string name="menu_attraction">المواقع السياحية</string>
+    <string name="menu_favourite">المفضلة</string>
+    <string name="menu_notification">الإشعارات</string>
+    <string name="menu_happiness_meter">مؤشر السعادة</string>
+    <string name="menu_contact">اتصل بنا</string>
+    <string name="menu_about_us">معلومات عنا</string>
+    <string name="menu_share_app">شارك التطبيق</string>
+    <string name="menu_privacy">سياسة الخصوصية</string>
+    <string name="menu_terms_condition">الأحكام والشروط</string>
+    <string name="menu_language">اللغة</string>
+
+
+    <!--map -->
+    <string name="your_location">موقعك</string>
+    <string name="Walk_Straight">المشي بشكل مستقيم</string>
+    <string name="start_navigation">ابدأ التنقل</string>
+    <string name="steps">خطوات</string>
+
+    <string name="stop_navigation">توقف</string>
+
+
+    <!-- Sign up and Sign in-->
+
+    <string name="first_name">الاسم الاول</string>
+    <string name="last_Name">اسم العائلة</string>
+    <string name="Email_Id">البريد الإلكتروني</string>
+    <string name="I_read_and_I_accept_Terms_Conditions">قرأت وأوافق على الشروط والأحكام</string>
+    <string name="Submit">إرسال</string>
+    <string name="Or_Sign_Up_using">أو قم بالتسجيل باستخدام</string>
+    <string name="Already_have_an_account_Sign_In"><font color='red'>تسجيل الدخول</font>هل لديك حساب؟ </string>
+    <string name="or_sign_in_using">Or Sign in using</string>
+    <string name="update">Update</string>
+    <string name="done">تم</string>
+
+    <string name="error_first_name">Enter first name</string>
+    <string name="error_last_name">Enter last name</string>
+    <string name="error_email">الرجاء استخدام بريد الكتروني صالح</string>
+
+    <string name="search_hint">بحث في المواقع</string>
+    <string name="cont_desc">poi image</string>
+    <string name="btn_know_more">اعرف المزيد</string>
+    <string name="sign_banner_text"><![CDATA[اشترك وانضم إلينا في رحلة الاكتشاف]]></string>
+
+    <string name="preferred_language">اختر اللغة المفضلة</string>
+    <string name="about_app">عن التطبيق</string>
+    <string name="food">الطعام</string>
+    <string name="shop">المحلات</string>
+    <string name="btn_ar_view">عرض الواقع المعزز</string>
+    <string name="btn_3d_map_view">عرض خريطة ثلاثية الأبعاد</string>
+    <string name="empty_state_title"><![CDATA[لا يوجد بيانات]]></string>
+    <string name="heritage">التاريخي</string>
+    <string name="version">النسخة %1s</string>
+    <string name="show_detail">إظهار التفاصيل</string>
+    <string name="navigate">إبدأ الرحلة</string>
+    <string name="back">رجوع</string>
+
+
+    <string name="menu_rate_us">تقييم التطبيق</string>
+    <string name="about_us_text">حول التطبيق</string>
+    <string name="policies">السياسات</string>
+    <string name="private_policies">سياسة الخصوصية</string>
+    <string name="click_here_to_view_our_privacy_policy">اضغط هنا للذهاب الى سياسة الخصوصية</string>
+    <string name="term_condition"><![CDATA[الأحكام والشروط]]></string>
+    <string name="library_we_use">الأنظمة المستخدمة</string>
+    <string name="smart_guide">المرشد الذكي</string>
+    <string name="your_voice">رأيك</string>
+    <string name="information">معلومات</string>
+    <string name="settings">الاعدادات</string>
+    <string name="about_us_description_text">انطلاقاً من الدور الذي تمثله هيئة دبي للثقافة والفنون والتي تسعى إلى الاستمرار في دورها الخدمي بتعزيز الثقافة ونشر المعرفة، تم تطوير تطبيق للهواتف الذكية بهدف توفير الخدمات الذكية لعموم المستفيدين بما يسهم في تحقيق أهداف الهيئة في تقديم خدمات مميزة وذكية وذات فائدة عالية لجمهور المستفيدين لتحقق رؤاهم وتطلعاتهم،</string>
+    <string name="location">الموقع</string>
+    <string name="contact_address"><![CDATA[العنوان : حي دبي للتصميم، المبنى رقم 2، الطابق 6 والطابق 7 ]]></string>
+    <string name="contact_number">مكاني :   2841786795</string>
+    <string name="account">الحساب</string>
+    <string name="related_apps">التطبيقات الذكية</string>
+    <string name="menu_setting">الاعدادات</string>
+    <string name="menu_accessbility">إمكانية الوصول</string>
+    <string name="menu_guide">المساعد</string>
+    <string name="reach_us">التواصل</string>
+    <string name="phone_string">الهاتف : 80033222</string>
+    <string name="email_string">البريد الالكتروني : info@dubaiculture.ae</string>
+    <string name="fax_string">فاكس : 045155100</string>
+    <string name="website_string">الموقع الالكتروني</string>
+    <string name="feedback_string">زودنا بملاحظات</string>
+    <string name="social_media_string">قنوات التواصل الاجتماعي</string>
+    <string name="suggestion_complaints">الاقتراحات والشكاوى</string>
+    <string name="eSuggest">اقتراحات</string>
+    <string name="eComplain">شكاوى</string>
+    <string name="working_hours">اوقات العمل</string>
+    <string name="sunday">الاحد</string>
+    <string name="time_string">7:30am - 2:30am</string>
+    <string name="monday">الاثنين</string>
+    <string name="tuesday">الثلاثاء</string>
+    <string name="wednesday">الاربعاء</string>
+    <string name="thursday">الخميس</string>
+    <string name="hows_experience_us">كيف كانت تجربتك؟</string>
+    <string name="email_hint">البريد الإلكتروني (user@example.com)*</string>
+    <string name="loading">Loading.....</string>
+    <string name="skip">تخطي</string>
+    <string name="language">Language</string>
+    <string name="cancel">إلغاء</string>
+    <string name="mins">دقيقة</string>
+    <string name="sec">ثواني</string>
+    <string name="share_app_text">الق نظرة على تطبيق المرشد الذكي</string>
+    <string name="arrived_at">"لقد وصلت إلى %1s"</string>
+    <string name="on_boarding_title_1">المرشد الذكي</string>
+    <string name="on_boarding_desc_1">سوف نقوم بارشادك عبر الحي التاريخي بدون اية مساعدة من المرشد وفقط باستخدام جهازك</string>
+    <string name="on_boarding_title_2">الارشاد</string>
+    <string name="on_boarding_desc_2">اكتشف حي الفهيدي التاريخي عن طريق الخرائط ثلاثية الابعاد مع جميع المعلومات عن البيوت التراثية في الحي</string>
+    <string name="on_boarding_title_3">الواقع المعزز</string>
+    <string name="on_boarding_desc_3">اكتشف المكان عن طريق تقنية الواقع المعزز باستخدام الكاميرا والتجول في المكان</string>
+    <string name="on_boarding_title_4">الوسائط</string>
+    <string name="on_boarding_desc_4">احصل على المعلومات عن المواقع وذلك بطريقة العرض الصوتي والمرئي</string>
+    <string name="trip_info">إجمالي الرحلة</string>
+    <string name="distance_covered"><![CDATA[المسافة المقطوعة]]></string>
+    <string name="step_counts">عدد الخطوات</string>
+    <string name="straight">Go Straight</string>
+    <string name="menu_home">الرئيسية</string>
+    <string name="walking_to">السير إلى %1s</string>
+    <string name="click_privacy_policy">انقر هنا للاطلاع على سياسة الخصوصية الخاصة بنا</string>
+    <string name="click_term_condition"><![CDATA[انقر هنا لعرض الشروط والأحكام الخاصة بنا]]></string>
+    <string name="recent_notification">احدث الاشعارات</string>
+    <string name="name">*الاسم</string>
+    <string name="route_differently_abled">يمكن استخدام نفس الطريق لاصحاب الهمم</string>
+    <string name="guide_poi_title">جمعية التراث العمراني/ بيت رقم</string>
+    <string name="guide_desc"><![CDATA[<p dir=\"rtl\" style=\"margin-left:0.0px; margin-right:0.0px; text-align:right\"><span style=\"font-family:Geeza Pro\"><span style=\"font-size:small\"><span style=\"color:#000000\">تأسست</span></span></span> <span style=\"font-family:Geeza Pro\"><span style=\"font-size:small\"><span style=\"color:#000000\">جمعية</span></span></span> <span style=\"font-family:Geeza Pro\"><span style=\"font-size:small\"><span style=\"color:#000000\">التراث</span></span></span> <span style=\"font-family:Geeza Pro\"><span style=\"font-size:small\"><span style=\"color:#000000\">العمراني</span></span></span> <span style=\"font-family:Geeza Pro\"><span style=\"font-size:small\"><span style=\"color:#000000\">عام</span></span></span> <span style=\"font-family:Geeza Pro\"><span style=\"font-size:small\"><span style=\"color:#000000\">٢٠٠٣م،</span></span></span> <span style=\"font-family:Geeza Pro\"><span style=\"font-size:small\"><span style=\"color:#000000\">وهي</span></span></span> <span style=\"font-family:Geeza Pro\"><span style=\"font-size:small\"><span style=\"color:#000000\">مؤسسة</span></span></span> <span style=\"font-family:Geeza Pro\"><span style=\"font-size:small\"><span style=\"color:#000000\">اتحادية</span></span></span> <span style=\"font-family:Geeza Pro\"><span style=\"font-size:small\"><span style=\"color:#000000\">ذات</span></span></span> <span style=\"font-family:Geeza Pro\"><span style=\"font-size:small\"><span style=\"color:#000000\">نفع</span></span></span> <span style=\"font-family:Geeza Pro\"><span style=\"font-size:small\"><span style=\"color:#000000\">عام،</span></span></span> <span style=\"font-family:Geeza Pro\"><span style=\"font-size:small\"><span style=\"color:#000000\">تهدف</span></span></span> <span style=\"font-family:Geeza Pro\"><span style=\"font-size:small\"><span style=\"color:#000000\">للحفاظ</span></span></span> <span style=\"font-family:Geeza Pro\"><span style=\"font-size:small\"><span style=\"color:#000000\">على</span></span></span> <span style=\"font-family:Geeza Pro\"><span style=\"font-size:small\"><span style=\"color:#000000\">التراث</span></span></span> <span style=\"font-family:Geeza Pro\"><span style=\"font-size:small\"><span style=\"color:#000000\">العمراني</span></span></span> <span style=\"font-family:Geeza Pro\"><span style=\"font-size:small\"><span style=\"color:#000000\">لدولة</span></span></span> <span style=\"font-family:Geeza Pro\"><span style=\"font-size:small\"><span style=\"color:#000000\">الإمارات</span></span></span> <span style=\"font-family:Geeza Pro\"><span style=\"font-size:small\"><span style=\"color:#000000\">العربية</span></span></span> <span style=\"font-family:Geeza Pro\"><span style=\"font-size:small\"><span style=\"color:#000000\">المتحدة</span></span></span> <span style=\"font-family:Geeza Pro\"><span style=\"font-size:small\"><span style=\"color:#000000\">وتوثيقه</span></span></span> <span style=\"font-family:Geeza Pro\"><span style=\"font-size:small\"><span style=\"color:#000000\">وتأهيله</span></span></span> <span style=\"font-family:Geeza Pro\"><span style=\"font-size:small\"><span style=\"color:#000000\">ونشره</span></span></span> <span style=\"font-family:Geeza Pro\"><span style=\"font-size:small\"><span style=\"color:#000000\">بالتنسيق</span></span></span> <span style=\"font-family:Geeza Pro\"><span style=\"font-size:small\"><span style=\"color:#000000\">مع</span></span></span> <span style=\"font-family:Geeza Pro\"><span style=\"font-size:small\"><span style=\"color:#000000\">الجهات</span></span></span> <span style=\"font-family:Geeza Pro\"><span style=\"font-size:small\"><span style=\"color:#000000\">المعنية</span></span></span> <span style=\"font-family:Geeza Pro\"><span style=\"font-size:small\"><span style=\"color:#000000\">المحلية</span></span></span> <span style=\"font-family:Geeza Pro\"><span style=\"font-size:small\"><span style=\"color:#000000\">والدولية</span></span></span><span style=\"font-family:Helvetica\"><span style=\"font-size:small\"><span style=\"color:#000000\">.</span></span></span></p>]]></string>
+    <string name="delete">حذف</string>
+    <string name="used_library">المكتبات المستخدمة</string>
+    <string name="click_view">اضغط هنا للذهاب الى الوثيقة</string>
+    <string name="libraray_we_use">المكتبات المستخدمة</string>
+    <string name="meter">&#160;متر</string>
+    <string name="meters">&#160;متر</string>
+    <string name="feedback_thank_msg">شكرا لك لاستخدام خدماتنا الذكية ، الرقم المرجعي الخاص بك %1s</string>
+    <string name="install_ar">الرجاء تحميل ملفات الواقع المعزز</string>
+    <string name="updated_ar">الرجاء تحديث ملفات الواقع المعزز</string>
+    <string name="does_not_support">هذا الجهاز لا يدعم تقنية الواقع المعزز</string>
+    <string name="search_places_around">يمكن البحث في المواقع القريبة</string>
+    <string name="re_center_button">موقعي</string>
+    <string name="get_info_about_places">لمعرفة التفاصيل عن الموقع يرجى الضغط على الازرار</string>
+    <string name="video">فيديو</string>
+    <string name="audio">الصوت</string>
+    <string name="direction">الاتجاهات</string>
+    <string name="swipe_through_tab">اسحب بين التبويبات لتغيير الأقسام</string>
+
+    <string name="share_your_friends">مشاركة مع الأصدقاء</string>
+    <string name="date">التاريخ</string>
+
+    <!--Routing تأخذ -->
+    <string name="turn_right">انعطف لليمين</string>
+    <string name="turn_left">انعطف لليسار</string>
+    <string name="slight_left">تأخذ قليلا لليسار</string>
+    <string name="slight_right">تأخذ قليلا لليمين</string>
+    <string name="continue_for">استمر لغاية&#160;</string>
+    <string name="left">لليسار</string>
+    <string name="slight">قليلا</string>
+    <string name="right">لليمين</string>
+    <string name="subject">الموضوع*</string>
+    <string name="message">نص الرسالة*</string>
+    <string name="type">التصنيف</string>
+    <string name="start">ابدأ</string>
+    <string name="geofence_notif_body">استخدم تطبيق المرشد الذكي للتجول في حي الفهيدي التاريخي</string>
+    <string name="geofence_notif_title">مرحبا بك في حي الفهيدي التاريخي</string>
+    <string name="finish">ينهي</string>
+    <string name="require_permission_message">We require location permission to provide you with a better navigation experience.</string>
+    <string name="proceed">Proceed</string>
+    <string name="deny">Deny</string>
+
+
+</resources>

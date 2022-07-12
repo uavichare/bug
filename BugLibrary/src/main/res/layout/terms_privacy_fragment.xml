@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".ui.terms.TermsPrivacyFragment">
+
+    <include
+        android:id="@+id/layout_version"
+        layout="@layout/layout_app_info" />
+
+    <TextView
+        android:id="@+id/text_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="28dp"
+        android:drawablePadding="10dp"
+        android:fontFamily="@font/dubai_regular"
+        android:textColor="#D9000000"
+        android:textSize="14sp"
+        app:drawableStartCompat="@drawable/ic_new_icon"
+        tools:text="privacy" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_terms_privacy"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+</LinearLayout>

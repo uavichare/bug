@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/reach_us"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="16dp"
+        android:drawablePadding="18dp"
+        android:fontFamily="@font/dubai_regular"
+        android:gravity="center_vertical"
+        android:text="@string/reach_us"
+        android:textColor="#5F2E7F"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/reach_us_icon"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/phone_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="26dp"
+        android:drawablePadding="18dp"
+        android:fontFamily="@font/dubai_regular"
+        android:gravity="center_vertical"
+        android:text="@string/phone_string"
+        android:textColor="#4F4F4F"
+        android:textSize="16sp"
+        app:drawableStartCompat="@drawable/ic_phone"
+        app:layout_constraintStart_toEndOf="@+id/reach_us_icon"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/email_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:drawablePadding="18dp"
+        android:gravity="center_vertical"
+        android:textColor="#4F4F4F"
+        android:textSize="16sp"
+        android:fontFamily="@font/dubai_regular"
+
+
+        android:text="@string/email_string"
+        android:layout_marginStart="15dp"
+        app:drawableStartCompat="@drawable/ic_mail_icon"
+
+        app:layout_constraintStart_toEndOf="@+id/reach_us_icon"
+        app:layout_constraintTop_toBottomOf="@+id/phone_text" />
+
+
+
+    <TextView
+        android:id="@+id/fax_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/fax_string"
+        android:layout_marginTop="20dp"
+        android:drawablePadding="18dp"
+        android:gravity="center_vertical"
+        android:textColor="#4F4F4F"
+        android:fontFamily="@font/dubai_regular"
+
+        android:textSize="16sp"
+        android:layout_marginStart="15dp"
+        app:drawableStartCompat="@drawable/ic_fax_icon"
+        />
+
+
+    <TextView
+        android:id="@+id/website_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/website_string"
+        android:layout_marginTop="20dp"
+        android:drawablePadding="18dp"
+        android:fontFamily="@font/dubai_regular"
+
+        android:gravity="center_vertical"
+        android:textColor="#4F4F4F"
+        android:textSize="16sp"
+        android:layout_marginStart="15dp"
+        app:drawableStartCompat="@drawable/ic_website_icon"
+        />
+
+    <TextView
+        android:id="@+id/feedback_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/feedback_string"
+        android:layout_marginTop="20dp"
+        android:drawablePadding="18dp"
+        android:fontFamily="@font/dubai_regular"
+
+        android:gravity="center_vertical"
+        android:textColor="#4F4F4F"
+        android:textSize="16sp"
+
+        android:layout_marginStart="15dp"
+        app:drawableStartCompat="@drawable/ic_feedback_icon"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:background="#33333333"
+        android:layout_marginTop="26dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="16dp"
+        android:layout_height="0.5dp"/>
+
+</LinearLayout>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="24dp"
+    android:layout_marginEnd="16dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/img_shop"
+            android:layout_width="124dp"
+            android:layout_height="96dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/cont_desc"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/img_placeholder" />
+
+        <ImageView
+            android:id="@+id/img_favorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="14dp"
+            android:contentDescription="@string/cont_desc"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/text_shop_name"
+            app:srcCompat="@drawable/ic_favorite"
+            app:tint="#A833FF" />
+
+        <TextView
+            android:id="@+id/text_shop_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="8dp"
+            android:alpha="0.9"
+            android:fontFamily="@font/dubai_bold"
+            android:textColor="#1B1B1B"
+            android:textSize="14sp"
+            android:transitionName="@string/transition_title"
+            app:layout_constraintEnd_toStartOf="@+id/img_favorite"
+            app:layout_constraintStart_toEndOf="@+id/img_shop"
+            app:layout_constraintTop_toTopOf="@id/img_shop"
+            tools:text="Pizza by the bay" />
+
+
+        <TextView
+            android:id="@+id/text_keyword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="4dp"
+            android:alpha="0.6"
+            android:visibility="gone"
+            android:fontFamily="@font/dubai_regular"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@id/img_shop"
+            app:layout_constraintTop_toBottomOf="@id/text_shop_name"
+            tools:text="Coffee, Muffins, Burritos" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonKnowMore"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@android:color/transparent"
+            android:clickable="false"
+            android:fontFamily="@font/dubai_bold"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:lineSpacingExtra="1sp"
+            android:padding="0dp"
+            android:text="@string/btn_know_more"
+            android:textAllCaps="false"
+            android:textColor="@color/color_selected_text"
+            android:textSize="14sp"
+            app:icon="@drawable/ic_chevron_right"
+            app:iconGravity="end"
+
+            app:iconTint="@color/color_selected_text"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/img_shop" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

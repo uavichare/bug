@@ -1,1 +1,193 @@
-<resources></resources>
+<resources>
+    <string name="app_name">The Smart Guide</string>
+
+
+    <!--indoor atlas key-->
+    <!--<string name="ia_api_key" translatable="false">4d50984c-9518-433e-a54f-e46b371b585b</string>-->
+    <string name="ia_api_key" translatable="false">675933d8-45d2-4397-aef6-80bcf5861fed</string>
+    <string name="ia_secret_key" translatable="false">rxNJoW/xt1iVy3BA5c0r69tjf6097VxsW9dz56JzOnQsRbcD3qGDyKT0e3iA1XGEpn2N5JHL7FpgZSyuF5BKSXXWqJ+Y2nWqr8lXa5lmECBYOxiZzXnCih5Ozljgag==</string>
+
+    <!--tokens-->
+    <string name="mapbox_access_token" translatable="false">pk.eyJ1IjoibWVycmlsbC1hbW0iLCJhIjoiY2o4MnM0dm0wNTg5ODJ3bzNiajV1cHF2MyJ9.cLz-hmZiv5NbM4LGt-aBUA</string>
+    <string name="app_token" translatable="false">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNTk1Zjc1NmY1NGVkYWYyMzA4MjYzMTlhIiwiaWF0IjoxNDk5ODc2OTM4LCJleHAiOjE1NTE3MTY5Mzh9.9vFu_xjGMNb_w_1i-qIuxI9pUkdAMFkRqvmHmJAByHk</string>
+
+    <!--Mapbox -->
+    <string name="mapbox_style_url" translatable="false">mapbox://styles/merrill-amm/ckj88vi0830e019mwmjbgv8po</string>
+
+    <!--Facebook-->
+    <string name="facebook_app_id" translatable="false">106689688014887</string>
+    <string name="fb_login_protocol_scheme" translatable="false">fb106689688014887</string>
+
+
+    <!--Drawer menu-->
+    <string name="menu_attraction">Attractions</string>
+
+    <string name="menu_favourite">My Favourite</string>
+    <string name="menu_notification">Notifications</string>
+    <string name="menu_happiness_meter">Happiness Meter</string>
+    <string name="menu_contact">Contact us</string>
+    <string name="menu_about_us">About us</string>
+    <string name="menu_share_app">Share App</string>
+    <string name="menu_privacy">Privacy Policy</string>
+    <string name="menu_terms_condition">Terms of Use</string>
+    <string name="menu_language">Language</string>
+
+
+    <!--map -->
+    <string name="your_location">Your location</string>
+    <string name="Walk_Straight">Walk Straight</string>
+    <string name="start_navigation">Start Navigation</string>
+    <string name="steps">Steps</string>
+
+    <string name="stop_navigation">Stop Navigation</string>
+
+
+    <!-- Sign up and Sign in-->
+
+    <string name="first_name">First Name</string>
+    <string name="last_Name">Last Name</string>
+    <string name="Email_Id">E-mail</string>
+
+    <string name="I_read_and_I_accept_Terms_Conditions">I read and I accept <font color='red'>Terms &amp; Conditions</font></string>
+    <string name="Submit">Submit</string>
+    <string name="Or_Sign_Up_using">Or Sign Up using</string>
+    <string name="Already_have_an_account_Sign_In">Already have an account ? <font color='red'>sign in</font>.</string>
+
+    <string name="or_sign_in_using">Or Sign in using</string>
+    <string name="update">Update</string>
+    <string name="done">Done</string>
+
+    <string name="error_first_name">Enter first name</string>
+    <string name="error_last_name">Enter last name</string>
+    <string name="error_email">Enter valid email</string>
+
+    <string name="search_hint">Search Shops, washroom...etc</string>
+    <string name="cont_desc">poi image</string>
+    <string name="btn_know_more">Know more</string>
+    <string name="sign_banner_text"><![CDATA[Sign up & join us on the journey of Discovery]]></string>
+
+    <string name="preferred_language">SELECT Preferred LANGUAGE</string>
+    <string name="about_app">About this App</string>
+    <string name="food">Food</string>
+    <string name="shop">Shop</string>
+
+    <string name="btn_ar_view">AR View</string>
+    <string name="btn_3d_map_view">3D Map View</string>
+    <string name="empty_state_title"><![CDATA[There is no data!]]></string>
+    <string name="transition_title" translatable="false">title</string>
+    <string name="heritage">Heritage</string>
+    <string name="version">Version: %1s</string>
+    <string name="show_detail">Show Details</string>
+    <string name="navigate">Navigate</string>
+    <string name="back">Back</string>
+
+    <string name="menu_rate_us">Rate us</string>
+    <string name="about_us_text">ABOUT THE APP</string>
+    <string name="policies">POLICIES</string>
+    <string name="private_policies">Privacy Policy</string>
+    <string name="click_here_to_view_our_privacy_policy">Click here to view our privacy policy</string>
+    <string name="term_condition"><![CDATA[Terms & condition]]></string>
+    <string name="library_we_use">LIBRARY WE USE</string>
+    <string name="smart_guide">SMART GUIDE</string>
+    <string name="your_voice">YOUR VOICE</string>
+    <string name="information">INFORMATION</string>
+    <string name="settings">SETTINGS</string>
+    <string name="about_us_description_text">Based on the role that represents by the dubai culture and Arts Authority in promoting culture and spread knowldge that seeks to continue its service, our smart Application has been developed in order to provide smart services to the general beneficiaries so as to contribute to the achievement of the objectives of the authority in providing special/smart services with a high interest to the public to fulfill their visions and aspirations.</string>
+    <string name="location">LOCATION</string>
+    <string name="contact_address"><![CDATA[Address :  Dubai Design District, Building 2, level 6 & 7th Floor]]></string>
+    <string name="contact_number">Makani :   2841786795</string>
+    <string name="account">ACCOUNT</string>
+    <string name="related_apps">Related Apps</string>
+    <string name="menu_setting">Settings</string>
+    <string name="menu_accessbility">Accessbility</string>
+    <string name="menu_guide">Guide</string>
+    <string name="reach_us">REACH US</string>
+    <string name="phone_string">Phone : 80033222</string>
+    <string name="email_string">Email : info@dubaiculture.ae</string>
+    <string name="fax_string">Fax : 045155100</string>
+    <string name="website_string">website</string>
+    <string name="feedback_string">Feedback</string>
+    <string name="social_media_string">Social Media</string>
+    <string name="suggestion_complaints">SUGGESSTIONS AND COMPLAINS</string>
+    <string name="eSuggest">eSuggest</string>
+    <string name="eComplain">eComplain</string>
+    <string name="working_hours">WORKING HOURS</string>
+    <string name="sunday">Sunday</string>
+    <string name="time_string">7:30am - 2:30am</string>
+    <string name="monday">Monday</string>
+    <string name="tuesday">Tuesday</string>
+    <string name="wednesday">Wednesday</string>
+    <string name="thursday">Thrusday</string>
+    <string name="hows_experience_us">How was your experience with us?</string>
+    <string name="skip">Skip</string>
+    <string name="language">Language</string>
+
+    <string name="email_hint">Email (user@example.com)*</string>
+    <string name="loading">Loading.....</string>
+    <string name="cancel">Cancel</string>
+    <string name="mins"> mins</string>
+    <string name="sec"> seconds</string>
+
+    <string name="share_app_text">Hi there, I am enjoying using The Smart Guide app. You can also try …</string>
+    <string name="arrived_at">"You have Arrived at %1s"</string>
+    <string name="on_boarding_title_1">Smart Guide</string>
+    <string name="on_boarding_desc_1">We will guide you through our \n historical neighborhood without the need for any guide assistance except your device</string>
+    <string name="on_boarding_title_2">Wayfinding</string>
+    <string name="on_boarding_desc_2">Explore our historical neighborhood in 3D maps with all houses information</string>
+    <string name="on_boarding_title_3">Augmented reality</string>
+    <string name="on_boarding_desc_3">Explore the location with technology by your camera to access to navigate through AR</string>
+    <string name="on_boarding_title_4">Media</string>
+    <string name="on_boarding_desc_4">Get access to video and audio content for all our locations</string>
+    <string name="trip_info">Trip Info</string>
+    <string name="distance_covered"><![CDATA[Distance \nCovered]]></string>
+    <string name="step_counts">Step \nCounts</string>
+    <string name="straight">Go Straight</string>
+    <string name="menu_home">Home</string>
+    <string name="walking_to">Walking to %1s</string>
+    <string name="click_privacy_policy">Click here to view our privacy policy</string>
+    <string name="click_term_condition"><![CDATA[Click here to view our terms & condition]]></string>
+    <string name="recent_notification">Recent Notification</string>
+    <string name="name">Name*</string>
+    <string name="route_differently_abled">Same route can be used by differently abled</string>
+    <string name="guide_poi_title">Architectural Heritage Society</string>
+    <string name="guide_desc"><![CDATA[<p>Established in 2003, the society is a federal institution of public benefit that aims to preserve, document, qualify, and publish the UAE\'s urban heritage in coordination with local and international stakeholders.&nbsp;</p>]]></string>
+    <string name="delete">Delete</string>
+    <string name="used_library">Used Library</string>
+    <string name="click_view">Click Here to view</string>
+    <string name="libraray_we_use">Library We Use</string>
+    <string name="meter">&#160;meter</string>
+    <string name="meters">&#160;meters</string>
+    <string name="feedback_thank_msg">Thank you for using our smart services \n Your reference number is %1s</string>
+    <string name="install_ar">Please install ARCore</string>
+    <string name="updated_ar">Please update ARCore</string>
+    <string name="does_not_support">This device does not support AR</string>
+    <string name="search_places_around">Can Search Places \nAround</string>
+    <string name="re_center_button">Re-center Button</string>
+    <string name="get_info_about_places">Get info about places \n by clicking on Icons</string>
+    <string name="video">Video</string>
+    <string name="audio">Audio</string>
+    <string name="direction">Direction</string>
+    <string name="swipe_through_tab">Swipe through tab to \n change sections</string>
+    <string name="share_your_friends">Share it with your Friends</string>
+    <string name="date">Date</string>
+
+    <!--Routing-->
+    <string name="turn_right">Turn right</string>
+    <string name="turn_left">Turn left</string>
+    <string name="slight_left">Take a slight left</string>
+    <string name="slight_right">Take a slight right</string>
+    <string name="continue_for">Continue for </string>
+    <string name="left">left</string>
+    <string name="slight">slight</string>
+    <string name="right">right</string>
+    <string name="subject">Subject*</string>
+    <string name="message">Message*</string>
+    <string name="type">Type</string>
+    <string name="start">Start</string>
+    <string name="geofence_notif_body">Use the Smart Guide app to explore the historical district</string>
+    <string name="geofence_notif_title">Welcome to Al Fahidi Historical District</string>
+    <string name="finish">Finish</string>
+    <string name="require_permission_message">We require location permission to provide you with a better navigation experience.</string>
+    <string name="proceed">Proceed</string>
+    <string name="deny">Deny</string>
+</resources>

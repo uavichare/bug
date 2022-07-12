@@ -1,12 +1,111 @@
-<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.buglibrary" >
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.buglibrary">
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
-    <application>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <!--playing audio/video prevent screen lock-->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <uses-sdk tools:overrideLibrary="com.google.ar.sceneform,com.google.ar.sceneform.ux" />
+
+    <application
+        android:name="com.example.buglibrary.AlFahidiWayFindingApp"
+        android:allowBackup="true"
+        android:label="@string/app_name"
+
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AlFahidiHistoricalWayfinding"
+        android:usesCleartextTraffic="true">
         <activity
-            android:name=".Rocket"
-            android:exported="false" />
+            android:name="com.example.buglibrary.MainActivity"
+
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AlFahidiHistoricalWayfinding.Splash"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.example.buglibrary.ui.SymbolLayerMapillaryActivity" />
+        <activity android:name="com.example.buglibrary.ui.home.ar.ArActivity" />
+        <activity android:name="com.example.buglibrary.ui.home.ar.ArActivity2" />
+        <!--AR optional-->
+        <meta-data
+            android:name="com.google.ar.core"
+            android:value="optional" />
+
+        <!--Indoor atlas-->
+        <meta-data
+            android:name="com.indooratlas.android.sdk.API_KEY"
+            android:value="@string/ia_api_key" />
+        <meta-data
+            android:name="com.indooratlas.android.sdk.API_SECRET"
+            android:value="@string/ia_secret_key" />
+
+        <!--facebook-->
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name" />
+        <activity
+            android:name="com.facebook.CustomTabActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="@string/fb_login_protocol_scheme" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name="com.example.buglibrary.services.DCAANotificationService"
+            android:exported="false">
+
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_notification_icon" />
+        <!-- Set color used with incoming notification messages. This is used when no color is set for the incoming
+             notification message. See README(https://goo.gl/6BKBk7) for more. -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/purple_500" />
+
+        <receiver android:name="com.example.buglibrary.services.GeofenceBroadcastReceiver" />
+
+
     </application>
 
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.SENDTO" />
+            <data android:scheme="*" />
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <category android:name="android.intent.category.BROWSABLE" />
+            <data android:scheme="*" />
+        </intent>
+    </queries>
 </manifest>

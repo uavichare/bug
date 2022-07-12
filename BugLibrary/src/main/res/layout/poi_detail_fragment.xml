@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ui.home.PoiDetailFragment">
+
+    <ImageView
+        android:id="@+id/img_place_holder"
+        android:layout_width="0dp"
+        android:layout_height="342dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/img_placeholder"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/view_pagerpoi_img"
+        android:layout_width="0dp"
+        android:layout_height="342dp"
+        android:src="@drawable/img_placeholder"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="10dp"
+        android:backgroundTint="@android:color/transparent"
+        app:layout_constraintBottom_toTopOf="@id/layout_header"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:tabBackground="@drawable/selected_dot"
+        app:tabGravity="center"
+        app:tabIndicatorHeight="0dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_favourite"
+        android:layout_width="38dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="24dp"
+        android:backgroundTint="#B35F2E7F"
+        android:insetLeft="0dp"
+        android:insetRight="0dp"
+        android:padding="0dp"
+        app:cornerRadius="24dp"
+        app:icon="@drawable/ic_favorite"
+        app:iconGravity="textEnd"
+        app:iconPadding="0dp"
+        app:iconTint="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/layout_header"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/layout_header"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/gradient_poi_detail"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="@id/view_pagerpoi_img"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/text_poi_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:fontFamily="@font/dubai_bold"
+            android:textColor="@color/text_color"
+            android:textSize="16sp"
+            android:transitionName="@string/transition_title"
+            tools:text="Bollywood night" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_video"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="38dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:insetLeft="0dp"
+            android:insetRight="0dp"
+            android:padding="0dp"
+            app:cornerRadius="24dp"
+            app:icon="@drawable/ic_video"
+            app:iconGravity="textEnd"
+            app:iconPadding="0dp"
+            app:strokeColor="@color/color_selected_text" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_mic"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="38dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:insetLeft="0dp"
+            android:insetRight="0dp"
+            android:padding="0dp"
+            app:cornerRadius="24dp"
+            app:icon="@drawable/ic_headphones"
+            app:iconGravity="textEnd"
+            app:iconPadding="0dp"
+            app:strokeColor="@color/color_selected_text" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_draw_route"
+            android:layout_width="38dp"
+            android:layout_height="wrap_content"
+            android:insetLeft="0dp"
+            android:insetRight="0dp"
+            android:padding="0dp"
+            app:cornerRadius="24dp"
+            app:icon="@drawable/ic_direction"
+            app:iconGravity="textEnd"
+            app:iconPadding="0dp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/text_detail"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
+        android:fontFamily="@font/dubai_regular"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_pagerpoi_img" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -17,6 +17,7 @@ public class MyButton {
     public void MyLogicToIntimateOthers(String message) {
         //Invoke the interface
         ml.s(message);
+
         // Toast.makeText(c,"success",Toast.LENGTH_SHORT).show();
 
     }

@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_bar"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.guide.GuidePager1Fragment">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:alpha="0.6"
+        android:fitsSystemWindows="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#cc000000"
+            app:contentInsetEnd="0dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/dubai_bold"
+                android:text="@string/app_name"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+        </androidx.appcompat.widget.Toolbar>
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <com.mapbox.mapboxsdk.maps.MapView
+        android:id="@+id/map_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appBarLayout"
+        app:mapbox_cameraTargetLat="25.264181"
+        app:mapbox_cameraTargetLng="55.300155"
+        app:mapbox_cameraTilt="60.0"
+        app:mapbox_cameraZoom="18.5"
+        app:mapbox_cameraZoomMax="20"
+        app:mapbox_cameraZoomMin="16" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/purple_500"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appBarLayout" />
+
+    <FrameLayout
+        android:id="@+id/frameLayout2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#CC000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/search_view"
+        android:layout_width="0dp"
+        android:layout_height="34dp"
+        android:layout_margin="12dp"
+        android:background="@drawable/bg_search"
+        android:theme="@style/Theme.AlFahidiHistoricalWayfinding.AppBarOverlay"
+        app:iconifiedByDefault="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appBarLayout"
+        app:popupTheme="@style/Theme.AlFahidiHistoricalWayfinding.PopupOverlay"
+        app:queryHint="@string/search_hint"
+        app:searchHintIcon="@drawable/ic_round_search" />
+
+    <ImageView
+        android:id="@+id/arrow_search"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:src="@drawable/guide_arrow_down"
+        app:layout_constraintEnd_toEndOf="@id/helper_text_search"
+        app:layout_constraintStart_toStartOf="@id/helper_text_search"
+        app:layout_constraintTop_toBottomOf="@id/search_view" />
+
+    <TextView
+        android:id="@+id/helper_text_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/dubai_medium"
+        android:text="@string/search_places_around"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/arrow_search" />
+
+    <TextView
+        android:id="@+id/helper_text_recenter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/dubai_medium"
+        android:text="@string/re_center_button"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/fab_recenter"
+        app:layout_constraintEnd_toStartOf="@id/img_helper_recenter"
+        app:layout_constraintTop_toTopOf="@id/fab_recenter" />
+
+    <ImageView
+        android:id="@+id/img_helper_recenter"
+        android:layout_width="wrap_content"
+        android:layout_height="34dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:rotation="@integer/arrow_rotation"
+        android:src="@drawable/guide_arrow_down"
+        app:layout_constraintBottom_toBottomOf="@id/fab_recenter"
+        app:layout_constraintEnd_toStartOf="@id/fab_recenter"
+        app:layout_constraintTop_toTopOf="@id/fab_recenter" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_recenter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="92dp"
+        android:backgroundTint="@color/purple_500"
+        android:contentDescription="@string/cont_desc"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_crosshair"
+        app:tint="@color/white" />
+
+    <ImageView
+        android:id="@+id/poi_shopping"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:contentDescription="@string/cont_desc"
+        android:scaleX="0.7"
+        android:scaleY="0.7"
+        android:src="@drawable/retail"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/cont_desc"
+        android:scaleX="0.7"
+        android:scaleY="0.7"
+        android:src="@drawable/frame"
+        app:layout_constraintStart_toEndOf="@id/poi_institution"
+        app:layout_constraintTop_toBottomOf="@id/poi_shopping" />
+
+    <ImageView
+        android:id="@+id/poi_institution"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:contentDescription="@string/cont_desc"
+        android:scaleX="0.7"
+        android:scaleY="0.7"
+        android:src="@drawable/institution"
+        app:layout_constraintStart_toEndOf="@id/poi_shopping"
+        app:layout_constraintTop_toBottomOf="@id/poi_shopping" />
+
+    <ImageView
+        android:id="@+id/img_helper_poi"
+        android:layout_width="wrap_content"
+        android:layout_height="34dp"
+        android:contentDescription="@string/cont_desc"
+        android:fontFamily="@font/dubai_medium"
+        android:rotation="@integer/arrow_rotation"
+        android:src="@drawable/guide_arrow_down"
+        app:layout_constraintBottom_toBottomOf="@id/poi_institution"
+        app:layout_constraintStart_toEndOf="@id/poi_institution"
+        app:layout_constraintTop_toTopOf="@id/poi_institution" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/dubai_medium"
+        android:text="@string/get_info_about_places"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/poi_institution"
+        app:layout_constraintStart_toEndOf="@id/img_helper_poi"
+        app:layout_constraintTop_toTopOf="@id/poi_institution" />
+</androidx.constraintlayout.widget.ConstraintLayout>

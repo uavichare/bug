@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/poi_end_new" android:left="-2dp" android:right="-3dp" android:top="2dp" />
+</selector>

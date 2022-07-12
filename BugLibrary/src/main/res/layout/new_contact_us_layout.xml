@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+
+    <com.mapbox.mapboxsdk.maps.MapView
+        android:id="@+id/contact_us_mapbox"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:mapbox_cameraTargetLat="25.187762"
+        app:mapbox_cameraTargetLng="55.297091"
+        app:mapbox_cameraTilt="60.0"
+        app:mapbox_cameraZoom="16"
+        app:mapbox_cameraZoomMax="19"
+        app:mapbox_cameraZoomMin="16" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/dubai_bold"
+        android:text="@string/location"
+        android:textColor="#5F2E7F"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="8dp"
+        android:drawablePadding="16dp"
+        android:fontFamily="@font/dubai_regular"
+        android:text="@string/contact_address"
+        android:textColor="#4F4F4F"
+        android:textSize="16sp"
+
+        app:drawableStartCompat="@drawable/map_pin" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="38dp"
+        android:drawablePadding="16dp"
+        android:fontFamily="@font/dubai_regular"
+        android:gravity="center_vertical"
+        android:text="@string/contact_number"
+        android:textColor="#4F4F4F"
+
+        android:textSize="16sp"
+        app:drawableStartCompat="@drawable/map_pin" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginEnd="16dp"
+        android:background="#33333333" />
+</LinearLayout>
