@@ -5,7 +5,7 @@
 
     <application>
         <activity
-            android:name=".FirstScreenActivity"
+            android:name=".Rocket"
             android:exported="false" />
     </application>
 
