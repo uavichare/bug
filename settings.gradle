@@ -12,6 +12,32 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven {
+            // url "http://indooratlas-ltd.bintray.com/mvn-public"
+            url "https://dl.cloudsmith.io/public/indooratlas/mvn-public/maven/"
+
+        }
+
+        maven {
+            url 'https://api.mapbox.com/downloads/v2/releases/maven'
+            authentication {
+                basic(BasicAuthentication)
+            }
+            credentials {
+                // Do not change the username below.
+                // This should always be `mapbox` (not your username).
+                username = "mapbox"
+                // Use the secret token you stored in gradle.properties as the password
+                password =  "sk.eyJ1IjoibWVycmlsbC1hbW0iLCJhIjoiY2tqYm5lemh1MXNrYjMwbXRhb3JqNXRnbSJ9.VrlwxubF0Er-G8vU0h1vLQ"
+            }
+        }
+    }
+}
 rootProject.name = "Bug"
 include ':app'
 include ':BugLibrary'

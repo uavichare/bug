@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Bug</string>
+    <string name="mapbox_access_token" translatable="false">pk.eyJ1IjoibWVycmlsbC1hbW0iLCJhIjoiY2o4MnM0dm0wNTg5ODJ3bzNiajV1cHF2MyJ9.cLz-hmZiv5NbM4LGt-aBUA</string>
+
 </resources>
