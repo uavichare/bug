@@ -33,12 +33,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+<!--
         <com.dubaiculture.smartguide.ui.home.ar.handmotion.HandMotionView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:foregroundGravity="center"
             android:scaleType="center"
             android:src="@drawable/sceneform_hand_phone" />
+-->
     </FrameLayout>
 
     <!-- <TextView
