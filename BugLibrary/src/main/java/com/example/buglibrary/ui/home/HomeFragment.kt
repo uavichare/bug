@@ -30,7 +30,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import com.dubaiculture.smartguide.utils.SessionUtils
 import com.google.android.gms.common.api.ResolvableApiException
 import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationServices
@@ -54,6 +53,7 @@ import com.example.buglibrary.utils.CommonUtils
 
 import com.example.buglibrary.ui.home.ar.ArActivity
 import com.example.buglibrary.utils.GeoCentricUtil
+import com.example.buglibrary.utils.SessionUtils
 import com.example.buglibrary.utils.ext.injectViewModel
 import com.mapbox.android.core.permissions.PermissionsManager
 import com.mapbox.geojson.Feature

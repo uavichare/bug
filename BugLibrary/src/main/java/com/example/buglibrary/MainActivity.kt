@@ -686,11 +686,11 @@ class MainActivity : AppCompatActivity(), HasAndroidInjector, PermissionsListene
             .setLink(deepLink)
             .setDynamicLinkDomain(appCode)
             .setAndroidParameters(DynamicLink.AndroidParameters.Builder().build())
-            .setIosParameters(
+           /* .setIosParameters(
                 DynamicLink.IosParameters.Builder("com.dubaiculture.smartguide")
                     .setCustomScheme("dlscheme").build()
             )
-
+*/
             .buildDynamicLink()
         return dynamicLink.uri
     }
