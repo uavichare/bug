@@ -50,6 +50,7 @@ import com.example.buglibrary.helper.PreferenceHelper.get
 import com.example.buglibrary.helper.PreferenceHelper.set
 import com.example.buglibrary.manager.LocaleManager
 import com.example.buglibrary.utils.CommonUtils
+import com.example.buglibrary.data.Result
 
 import com.example.buglibrary.ui.home.ar.ArActivity
 import com.example.buglibrary.utils.GeoCentricUtil
@@ -149,7 +150,7 @@ class HomeFragment : Fragment(), Injectable,
         }
         app.mapViewModel = mapViewModel
 //        app.poi?.let {
-        mapViewModel.routePath.observe(viewLifecycleOwner, { jsonArray ->
+        mapViewModel.routePath.observe(viewLifecycleOwner) { jsonArray ->
             if (jsonArray != null) {
 
                 drawRoute(jsonArray)
@@ -158,7 +159,7 @@ class HomeFragment : Fragment(), Injectable,
 //                stopNavigation()
             }
 
-        })
+        }
 //        }
 
 
@@ -243,12 +244,12 @@ class HomeFragment : Fragment(), Injectable,
 
             //enableLocationComponent()
 
-/*
+
             homeViewModel.mapPoi(getString(R.string.app_token))
-                .observe(viewLifecycleOwner, { result ->
+                .observe(viewLifecycleOwner) { result ->
                     when (result.status) {
                         Result.Status.SUCCESS -> {
-//                            mapViewModel.setupIA(requireContext())
+//                           mapViewModel.setupIA(requireContext())
                             if (result.data.isNullOrEmpty().not()) {
                                 poiList = result.data
 
@@ -292,8 +293,8 @@ class HomeFragment : Fragment(), Injectable,
                         }
 
                     }
-                })
-*/
+                }
+
 
             lifecycleScope.launch {
                 delay(1500)
