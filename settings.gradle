@@ -16,10 +16,6 @@ dependencyResolutionManagement {
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
-            flatDir {
-                dirs "../libraries", "../commons/libs"
-            }
-
         google()
         mavenCentral()
         maven {
@@ -38,7 +34,9 @@ dependencyResolutionManagement {
                 // This should always be `mapbox` (not your username).
                 username = "mapbox"
                 // Use the secret token you stored in gradle.properties as the password
-                password =  "sk.eyJ1IjoibWVycmlsbC1hbW0iLCJhIjoiY2tqYm5lemh1MXNrYjMwbXRhb3JqNXRnbSJ9.VrlwxubF0Er-G8vU0h1vLQ"
+               // password =  "sk.eyJ1IjoibWVycmlsbC1hbW0iLCJhIjoiY2tqYm5lemh1MXNrYjMwbXRhb3JqNXRnbSJ9.VrlwxubF0Er-G8vU0h1vLQ"
+                password = project.properties['MAPBOX_DOWNLOADS_TOKEN'] ?: ""
+
             }
         }
     }

@@ -136,16 +136,16 @@ class MainActivity : AppCompatActivity(), HasAndroidInjector, PermissionsListene
 
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
-/*
+
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_favourite, R.id.nav_attraction,
+                R.id.nav_home/*, R.id.nav_favourite, R.id.nav_attraction,
                 R.id.nav_notification, R.id.nav_help, R.id.nav_happiness_meter,
                 R.id.nav_contact_us, R.id.nav_about_us, R.id.nav_share_app,
-                R.id.nav_privacy, R.id.nav_language, R.id.nav_settings
+                R.id.nav_privacy, R.id.nav_language, R.id.nav_settings*/
             ), binding.drawerLayout
         )
-*/
+
         val navHostFragment1 =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val fragment = navHostFragment1.childFragmentManager.fragments[0]
