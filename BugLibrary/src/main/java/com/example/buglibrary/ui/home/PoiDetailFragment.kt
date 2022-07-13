@@ -147,6 +147,7 @@ class PoiDetailFragment : Fragment(), Injectable, View.OnClickListener {
                 }
                 poiDetail?.isFavourite = poiDetail?.isFavourite?.not()!!
                 val deviceId = CommonUtils.getDeviceId(requireContext())
+/*
                 viewModel.favourite(poiDetail!!, deviceId)
                     .observe(viewLifecycleOwner, {
                         when (it.status) {
@@ -165,6 +166,7 @@ class PoiDetailFragment : Fragment(), Injectable, View.OnClickListener {
                             }
                         }
                     })
+*/
             }
 
         }

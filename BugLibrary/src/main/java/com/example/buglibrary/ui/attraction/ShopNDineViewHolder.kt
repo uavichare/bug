@@ -92,8 +92,9 @@ class ShopNDineViewHolder(val fragment: Fragment, private val itemBinding: ItemS
                 val deviceId = CommonUtils.getDeviceId(context)
                 when (fragment) {
                     is ShopNDineFragment -> {
+/*
                         fragment.viewModel.favourite(poi, deviceId)
-                            .observe(fragment.viewLifecycleOwner, {
+                            .observe(fragment.viewLifecycleOwner) {
                                 when (it.status) {
                                     Result.Status.SUCCESS -> {
                                         fragment.viewModel.updatedDb(poi)
@@ -101,11 +102,12 @@ class ShopNDineViewHolder(val fragment: Fragment, private val itemBinding: ItemS
                                     else -> {
                                     }
                                 }
-                            })
+                            }
+*/
                     }
                     is FavouriteFragment -> {
                         fragment.viewModel.favourite(poi, deviceId)
-                            .observe(fragment.viewLifecycleOwner, {
+                            .observe(fragment.viewLifecycleOwner) {
                                 when (it.status) {
                                     Result.Status.SUCCESS -> {
                                         fragment.viewModel.updatedDb(poi)
@@ -114,7 +116,7 @@ class ShopNDineViewHolder(val fragment: Fragment, private val itemBinding: ItemS
                                     else -> {
                                     }
                                 }
-                            })
+                            }
                     }
                 }
 

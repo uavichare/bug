@@ -11,16 +11,20 @@ import javax.inject.Inject
 
 class ShopNDineViewModel @Inject constructor(private val mapRepository: MapRepository) :
     ViewModel() {
+/*
     private val token =
         FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
             if (!task.isSuccessful) {
                 return@OnCompleteListener
             }
 
-            /* // Get new FCM registration token
-             val token = task.result*/
+            */
+/* // Get new FCM registration token
+             val token = task.result*//*
+
 
         })
+*/
 
     fun getPoiBySubCategory(category: String) =
         mapRepository.poiBySubCategory(category)
@@ -29,7 +33,7 @@ class ShopNDineViewModel @Inject constructor(private val mapRepository: MapRepos
         mapRepository.poiByMultipleSubCategory(categories)
 
 
-    fun favourite(poi: Poi, deviceId: String) = mapRepository.favourite(poi, token.result, deviceId)
+    fun favourite(poi: Poi, deviceId: String) = mapRepository.favourite(poi,"", deviceId)
     fun updatedDb(poi: Poi) {
         viewModelScope.launch {
             mapRepository.update(poi)
