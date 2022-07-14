@@ -26,6 +26,9 @@ dependencyResolutionManagement {
 
         maven {
             url 'https://api.mapbox.com/downloads/v2/releases/maven'
+
+
+/*
             authentication {
                 basic(BasicAuthentication)
             }
@@ -38,6 +41,10 @@ dependencyResolutionManagement {
                 password ="sk.eyJ1IjoibWVycmlsbC1hbW0iLCJhIjoiY2tqYm5lemh1MXNrYjMwbXRhb3JqNXRnbSJ9.VrlwxubF0Er-G8vU0h1vLQ"
 
             }
+*/
+
+
+
         }
     }
 }
