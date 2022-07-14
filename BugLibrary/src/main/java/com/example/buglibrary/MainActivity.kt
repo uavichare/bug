@@ -5,6 +5,7 @@ import android.app.Activity
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
@@ -51,6 +52,7 @@ import com.google.firebase.dynamiclinks.FirebaseDynamicLinks
 import com.google.firebase.messaging.FirebaseMessaging
 import com.mapbox.android.core.permissions.PermissionsListener
 import com.mapbox.android.core.permissions.PermissionsManager
+import com.mapbox.mapboxsdk.Mapbox
 import com.mapbox.mapboxsdk.geometry.LatLng
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
@@ -122,8 +124,30 @@ class MainActivity : AppCompatActivity(), HasAndroidInjector, PermissionsListene
         val isFirstTime: Boolean? = pref[AppConstant.ON_BOARDING]
         val extras = intent.extras
         if (extras != null) {
-            val value = extras.getString("API_KEY")
-            Toast.makeText(this,value.toString(),Toast.LENGTH_LONG).show()
+            val apiKey = extras.getString("API_KEY")
+            val secretKey = extras.getString("SECRET_KEY")
+            val mapboxToken = extras.getString("MAPBOX_ACCESSTOKEN")
+            Mapbox.getInstance(this,mapboxToken)
+
+
+        try {
+            val applicationInfo =
+                packageManager.getApplicationInfo(packageName, PackageManager.GET_META_DATA)
+            applicationInfo.metaData.putString("com.indooratlas.android.sdk.API_KEY",apiKey)
+            applicationInfo.metaData.putString("com.indooratlas.android.sdk.API_SECRET",secretKey)
+
+            val abc:String?= applicationInfo.metaData.getString("com.indooratlas.android.sdk.API_SECRET")
+            Toast.makeText(this,abc,Toast.LENGTH_LONG).show()
+        } catch (e: PackageManager.NameNotFoundException) {
+            e.printStackTrace()
+        }
+
+
+
+            val navController by lazy { findNavController(R.id.nav_host_fragment) }
+            navController.setGraph(R.navigation.mobile_navigation)
+
+
             //The key argument here must match that used in the other activity
         }
 

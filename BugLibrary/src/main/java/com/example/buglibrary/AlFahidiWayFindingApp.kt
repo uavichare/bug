@@ -38,7 +38,6 @@ class AlFahidiWayFindingApp : Application(), HasAndroidInjector,
 
         registerActivityLifecycleCallbacks(this)
 
-        Mapbox.getInstance(this, getString(R.string.mapbox_access_token))
         FacebookSdk.sdkInitialize(applicationContext);
     }
 
