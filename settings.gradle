@@ -5,14 +5,7 @@ pluginManagement {
         mavenCentral()
     }
 }
-dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositories {
-        google()
-        mavenCentral()
-    }
 
-}
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
@@ -29,9 +22,8 @@ dependencyResolutionManagement {
 
         maven {
             url 'https://api.mapbox.com/downloads/v2/releases/maven'
-        }
 
-/*
+
             authentication {
                 basic(BasicAuthentication)
             }
@@ -40,12 +32,12 @@ dependencyResolutionManagement {
                 // This should always be `mapbox` (not your username).
                 username = "mapbox"
                 // Use the secret token you stored in gradle.properties as the password
-               // password =  "sk.eyJ1IjoibWVycmlsbC1hbW0iLCJhIjoiY2tqYm5lemh1MXNrYjMwbXRhb3JqNXRnbSJ9.VrlwxubF0Er-G8vU0h1vLQ"
-                password ="sk.eyJ1IjoibWVycmlsbC1hbW0iLCJhIjoiY2tqYm5lemh1MXNrYjMwbXRhb3JqNXRnbSJ9.VrlwxubF0Er-G8vU0h1vLQ"
+                // password =  "sk.eyJ1IjoibWVycmlsbC1hbW0iLCJhIjoiY2tqYm5lemh1MXNrYjMwbXRhb3JqNXRnbSJ9.VrlwxubF0Er-G8vU0h1vLQ"
+                password = "sk.eyJ1IjoibWVycmlsbC1hbW0iLCJhIjoiY2tqYm5lemh1MXNrYjMwbXRhb3JqNXRnbSJ9.VrlwxubF0Er-G8vU0h1vLQ"
 
             }
-*/
 
+        }
 
     }
 }
