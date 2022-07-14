@@ -30,12 +30,6 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.gms.location.Geofence
-import com.google.android.gms.location.GeofencingClient
-import com.google.android.gms.location.GeofencingRequest
-import com.google.android.gms.location.LocationServices
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.firebase.messaging.FirebaseMessaging
 import com.example.buglibrary.data.Poi
 import com.example.buglibrary.databinding.ActivityMainBinding
 import com.example.buglibrary.helper.AppConstant
@@ -46,10 +40,15 @@ import com.example.buglibrary.services.GeofenceBroadcastReceiver
 import com.example.buglibrary.ui.home.HomeFragment
 import com.example.buglibrary.ui.home.SearchAdapter
 import com.example.buglibrary.ui.terms.TermsPrivacyViewModel
-import com.example.buglibrary.utils.CommonUtils
 import com.example.buglibrary.utils.ext.injectViewModel
+import com.google.android.gms.location.Geofence
+import com.google.android.gms.location.GeofencingClient
+import com.google.android.gms.location.GeofencingRequest
+import com.google.android.gms.location.LocationServices
+import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.dynamiclinks.DynamicLink
 import com.google.firebase.dynamiclinks.FirebaseDynamicLinks
+import com.google.firebase.messaging.FirebaseMessaging
 import com.mapbox.android.core.permissions.PermissionsListener
 import com.mapbox.android.core.permissions.PermissionsManager
 import com.mapbox.mapboxsdk.geometry.LatLng
@@ -64,7 +63,6 @@ import kotlinx.coroutines.launch
 import java.util.*
 import java.util.regex.Pattern
 import javax.inject.Inject
-import kotlin.collections.ArrayList
 
 
 class MainActivity : AppCompatActivity(), HasAndroidInjector, PermissionsListener {
@@ -122,6 +120,13 @@ class MainActivity : AppCompatActivity(), HasAndroidInjector, PermissionsListene
         val navController = findNavController(R.id.nav_host_fragment)
         val pref = PreferenceHelper.defaultPrefs(this)
         val isFirstTime: Boolean? = pref[AppConstant.ON_BOARDING]
+        val extras = intent.extras
+        if (extras != null) {
+            val value = extras.getString("API_KEY")
+            Toast.makeText(this,value.toString(),Toast.LENGTH_LONG).show()
+            //The key argument here must match that used in the other activity
+        }
+
 /*
         if (!isFirstTime!!) {
 //            pref[AppConstant.ON_BOARDING] = true
