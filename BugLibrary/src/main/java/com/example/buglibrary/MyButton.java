@@ -25,7 +25,7 @@ public class MyButton {
     public void OpenScreen(Context c) {
         Intent intent = null;
         try {
-            intent = new Intent(c,Class.forName("com.example.buglibrary.Rocket") );
+            intent = new Intent(c,Class.forName("com.example.buglibrary.MainActivity") );
             c.startActivity(intent);
 
         } catch (ClassNotFoundException e) {
