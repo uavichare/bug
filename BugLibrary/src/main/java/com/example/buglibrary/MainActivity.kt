@@ -127,7 +127,7 @@ class MainActivity : AppCompatActivity(), HasAndroidInjector, PermissionsListene
             val apiKey = extras.getString("API_KEY")
             val secretKey = extras.getString("SECRET_KEY")
             val mapboxToken = extras.getString("MAPBOX_ACCESSTOKEN")
-            Mapbox.getInstance(this,mapboxToken)
+          //  Mapbox.getInstance(this,mapboxToken)
 
 
 /*
