@@ -119,7 +119,8 @@ class MainActivity : AppCompatActivity(), HasAndroidInjector, PermissionsListene
         setSupportActionBar(toolbar)
 
         navHostFragment = findViewById(R.id.nav_host_fragment)
-        val navController = findNavController(R.id.nav_host_fragment)
+        val navController by lazy { findNavController(R.id.nav_host_fragment) }
+        navController.setGraph(R.navigation.mobile_navigation)
         val pref = PreferenceHelper.defaultPrefs(this)
         val isFirstTime: Boolean? = pref[AppConstant.ON_BOARDING]
         val extras = intent.extras
@@ -146,8 +147,6 @@ class MainActivity : AppCompatActivity(), HasAndroidInjector, PermissionsListene
 
 
 
-            val navController by lazy { findNavController(R.id.nav_host_fragment) }
-            navController.setGraph(R.navigation.mobile_navigation)
 
 
             //The key argument here must match that used in the other activity
