@@ -121,8 +121,9 @@ class MainActivity : AppCompatActivity(), HasAndroidInjector, PermissionsListene
         navHostFragment = findViewById(R.id.nav_host_fragment)
         val navController by lazy { findNavController(R.id.nav_host_fragment) }
         navController.setGraph(R.navigation.mobile_navigation)
-        val pref = PreferenceHelper.defaultPrefs(this)
-        val isFirstTime: Boolean? = pref[AppConstant.ON_BOARDING]
+        setPermission()
+       // val pref = PreferenceHelper.defaultPrefs(this)
+       // val isFirstTime: Boolean? = pref[AppConstant.ON_BOARDING]
         val extras = intent.extras
         if (extras != null) {
             val apiKey = extras.getString("API_KEY")
@@ -218,10 +219,11 @@ class MainActivity : AppCompatActivity(), HasAndroidInjector, PermissionsListene
             }
         }
 
+/*
         if (isFirstTime == true) {
-            setPermission()
             //askSinglePermissions.launch(Manifest.permission.ACCESS_BACKGROUND_LOCATION)
         }
+*/
 
         setupActionBarWithNavController(navController, appBarConfiguration)
       //  binding.navView.setupWithNavController(navController)
