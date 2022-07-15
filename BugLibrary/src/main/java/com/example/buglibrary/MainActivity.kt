@@ -177,13 +177,17 @@ class MainActivity : AppCompatActivity(), HasAndroidInjector, PermissionsListene
             ), binding.drawerLayout
         )
 
+/*
         val navHostFragment1 =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val fragment = navHostFragment1.childFragmentManager.fragments[0]
+*/
 
+/*
         if (fragment is HomeFragment) {
             homeFragment = fragment
         }
+*/
 
         binding.appBar.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(p0: String?): Boolean {
