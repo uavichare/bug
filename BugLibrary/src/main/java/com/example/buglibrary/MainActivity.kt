@@ -130,6 +130,7 @@ class MainActivity : AppCompatActivity(), HasAndroidInjector, PermissionsListene
             Mapbox.getInstance(this,mapboxToken)
 
 
+/*
         try {
             val applicationInfo =
                 packageManager.getApplicationInfo(packageName, PackageManager.GET_META_DATA)
@@ -141,6 +142,7 @@ class MainActivity : AppCompatActivity(), HasAndroidInjector, PermissionsListene
         } catch (e: PackageManager.NameNotFoundException) {
             e.printStackTrace()
         }
+*/
 
 
 
