@@ -127,10 +127,10 @@ class MainActivity : AppCompatActivity(), HasAndroidInjector, PermissionsListene
             val apiKey = extras.getString("API_KEY")
             val secretKey = extras.getString("SECRET_KEY")
             val mapboxToken = extras.getString("MAPBOX_ACCESSTOKEN")
-          //  Mapbox.getInstance(this,mapboxToken)
+            Mapbox.getInstance(this,mapboxToken)
 
 
-/*
+
         try {
             val applicationInfo =
                 packageManager.getApplicationInfo(packageName, PackageManager.GET_META_DATA)
@@ -142,12 +142,12 @@ class MainActivity : AppCompatActivity(), HasAndroidInjector, PermissionsListene
         } catch (e: PackageManager.NameNotFoundException) {
             e.printStackTrace()
         }
-*/
 
 
 
-           // val navController by lazy { findNavController(R.id.nav_host_fragment) }
-            //navController.setGraph(R.navigation.mobile_navigation)
+
+            val navController by lazy { findNavController(R.id.nav_host_fragment) }
+            navController.setGraph(R.navigation.mobile_navigation)
 
 
             //The key argument here must match that used in the other activity
