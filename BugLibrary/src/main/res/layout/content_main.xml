@@ -16,14 +16,35 @@
         app:defaultNavHost="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:navGraph="@navigation/mobile_navigation"
+        />
 
+    <TextView
+        android:id="@+id/places_around_you"
+        android:layout_width="match_parent"
+        android:text="PLACES AROUND YOU"
+        android:textSize="14sp"
+        android:background="@color/white"
+        android:paddingStart="15sp"
+        android:visibility="gone"
+        android:layout_marginBottom="18dp"
+        android:paddingTop="6dp"
+        android:paddingBottom="18dp"
+        android:drawablePadding="12dp"
+        android:textColor="#333333"
+        android:fontFamily="@font/itc_legacy_sans_std_book"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="wrap_content"
+        app:drawableStartCompat="@drawable/ic_places_aroud_you" />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_search"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/places_around_you" />
 </androidx.constraintlayout.widget.ConstraintLayout>
