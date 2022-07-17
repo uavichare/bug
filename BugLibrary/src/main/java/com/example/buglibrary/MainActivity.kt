@@ -400,10 +400,13 @@ class MainActivity : AppCompatActivity(), HasAndroidInjector, PermissionsListene
                 val list = search(it)
                 if (list?.isNotEmpty() == true) {
                     content.recyclerViewSearch.visibility = View.VISIBLE
+                    content.placesAroundYou.visibility=View.VISIBLE
                     searchAdapter.submitList(list)
 
                 } else {
                     content.recyclerViewSearch.visibility = View.GONE
+                    content.placesAroundYou.visibility=View.GONE
+
                 }
             }
         }
