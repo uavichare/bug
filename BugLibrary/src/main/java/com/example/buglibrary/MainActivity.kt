@@ -166,7 +166,7 @@ class MainActivity : AppCompatActivity(), HasAndroidInjector, PermissionsListene
         navHostFragment = findViewById(R.id.nav_host_fragment)
         val navController by lazy { findNavController(R.id.nav_host_fragment) }
         navController.setGraph(R.navigation.mobile_navigation)
-        setPermission()
+        //setPermission()
 
 
         // Passing each menu ID as a set of Ids because each
@@ -452,7 +452,8 @@ class MainActivity : AppCompatActivity(), HasAndroidInjector, PermissionsListene
         val regex = ".*" + query.trim().toLowerCase(Locale.ROOT) + ".*"
         val pattern = Pattern.compile(regex)
 
-        val filterList = homeFragment?.poiList?.filter {
+        val filterList = navHostFragment.getFragment<HomeFragment>()
+                .poiList?.filter {
             pattern.matcher(it.poiMultilingual?.en?.name?.toLowerCase(Locale.ROOT)!!).matches() ||
                     pattern.matcher(it.poiMultilingual?.arabic?.name?.toLowerCase(Locale.ROOT)!!)
                         .matches()
