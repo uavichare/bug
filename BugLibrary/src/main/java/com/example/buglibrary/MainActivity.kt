@@ -117,10 +117,8 @@ class MainActivity : AppCompatActivity(), HasAndroidInjector, PermissionsListene
         val notification = intent.getStringExtra(AppConstant.NOTIFICATION_TYPE)
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
-
         navHostFragment = findViewById(R.id.nav_host_fragment)
-        val navController by lazy { findNavController(R.id.nav_host_fragment) }
-        navController.setGraph(R.navigation.mobile_navigation)
+
         setPermission()
        // val pref = PreferenceHelper.defaultPrefs(this)
        // val isFirstTime: Boolean? = pref[AppConstant.ON_BOARDING]
@@ -152,6 +150,9 @@ class MainActivity : AppCompatActivity(), HasAndroidInjector, PermissionsListene
 
             //The key argument here must match that used in the other activity
         }
+        val navController by lazy { findNavController(R.id.nav_host_fragment) }
+        navController.setGraph(R.navigation.mobile_navigation)
+
 
 /*
         if (!isFirstTime!!) {
