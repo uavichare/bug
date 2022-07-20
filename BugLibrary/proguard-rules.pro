@@ -20,7 +20,7 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 -keep class com.example.buglibrary.InsuideSDK
--keepclassmembernames class com.example.buglibrary.InsuideSDK
+#-keepclassmembernames class com.example.buglibrary.InsuideSDK
 #{
   #  public <methods>;
 #}
