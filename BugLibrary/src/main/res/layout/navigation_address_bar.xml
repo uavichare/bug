@@ -34,13 +34,23 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_initial_loc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="18dp"
+            android:layout_height="15dp"
             android:tint="@color/color_search"
             app:layout_constraintBottom_toBottomOf="@id/text_origin"
             app:layout_constraintStart_toEndOf="@id/img_back"
             app:layout_constraintTop_toTopOf="@id/text_origin"
             app:srcCompat="@drawable/inital_location" />
+<ImageView
+    android:id="@+id/dotteedline"
+    android:layout_width="1dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/ic_play"
+    android:src="@drawable/white_dotted_line"
+    app:layout_constraintStart_toStartOf="@+id/img_initial_loc"
+    app:layout_constraintTop_toBottomOf="@+id/img_initial_loc"
+    app:layout_constraintEnd_toEndOf="@+id/img_initial_loc"
+    />
 
         <TextView
             android:id="@+id/text_origin"
@@ -262,12 +272,12 @@
             android:fontFamily="@font/dubai_regular"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            android:text="@string/steps"
+            android:text="@string/tour_guide"
             android:textAllCaps="false"
             android:textColor="@color/black_alpha_85"
             android:textSize="16sp"
             app:cornerRadius="5dp"
-            app:icon="@drawable/ic_step_list"
+            app:icon="@drawable/ic_play"
             app:iconGravity="textStart"
             app:iconPadding="8dp"
             app:iconTint="@color/black_alpha_85"

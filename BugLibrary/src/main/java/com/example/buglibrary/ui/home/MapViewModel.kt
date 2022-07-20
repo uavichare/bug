@@ -3,6 +3,7 @@ package com.example.buglibrary.ui.home
 import android.content.Context
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.indooratlas.android.sdk.*
@@ -47,20 +48,47 @@ class MapViewModel @Inject constructor() : ViewModel(),
     fun setupIA(context: Context) {
 
         val extras = Bundle(2)
+
+
+
+/*
+       extras.putString(
+            IALocationManager.EXTRA_API_KEY,"675933d8-45d2-4397-aef6-80bcf5861fed")
+        extras.putString(
+            IALocationManager.EXTRA_API_SECRET,
+            "rxNJoW/xt1iVy3BA5c0r69tjf6097VxsW9dz56JzOnQsRbcD3qGDyKT0e3iA1XGEpn2N5JHL7FpgZSyuF5BKSXXWqJ+Y2nWqr8lXa5lmECBYOxiZzXnCih5Ozljgag=="
+        )
+*/
+
+
+
+
+        // Toast.makeText(context,pref[AppConstant.INDOOR_ATlAS_APIKEY], Toast.LENGTH_LONG).show()
+
         try {
             val pref = PreferenceHelper.defaultPrefs(context)
-           val apiKey:String?= pref[AppConstant.INDOOR_ATlAS_APIKEY]
+            val apiKey:String?= pref[AppConstant.INDOOR_ATlAS_APIKEY]
             val secretKey:String?= pref[AppConstant.INDOOR_ATlAS_SECRETKEY]
+
             if(apiKey?.isEmpty() == true||apiKey==null||secretKey==null || secretKey.isEmpty())
             {
                 return
             }
+
+
             extras.putString(
-                IALocationManager.EXTRA_API_KEY,apiKey)
+                IALocationManager.EXTRA_API_KEY,pref[AppConstant.INDOOR_ATlAS_APIKEY])
             extras.putString(
-                IALocationManager.EXTRA_API_SECRET,secretKey
+                IALocationManager.EXTRA_API_SECRET,pref[AppConstant.INDOOR_ATlAS_APIKEY]
             )
-            iaLocationManager = IALocationManager.create(context,extras)
+
+
+            try {
+                iaLocationManager = IALocationManager.create(context,extras)
+            } catch (e: Exception) {
+                e.toString()
+            }
+
             tts = TextToSpeech(context, this)
             iaLocationManager?.requestLocationUpdates(IALocationRequest.create(), this)
             iaLocationManager?.registerOrientationListener(IAOrientationRequest(5.0, 5.0), this)
@@ -80,8 +108,9 @@ class MapViewModel @Inject constructor() : ViewModel(),
     }
 
     override fun onStatusChanged(p0: String?, p1: Int, p2: Bundle?) {
-
+        Log.d("status","status")
     }
+
 
 
     private fun setIALocation(lat: Double, lng: Double, floorNo: Int) {
@@ -104,11 +133,16 @@ class MapViewModel @Inject constructor() : ViewModel(),
 
     }
 
+
     override fun onInit(status: Int) {
-        when (status) {
-            TextToSpeech.SUCCESS -> {
-                tts?.language = java.util.Locale.US
+        try {
+            when (status) {
+                TextToSpeech.SUCCESS -> {
+                    tts?.language = java.util.Locale.US
+                }
             }
+        } catch (e: Exception) {
+            e.toString()
         }
     }
 

@@ -1,0 +1,62 @@
+{
+  "ScreenType": "Privacy",
+  "Sections": [
+    {
+      "Type": "Section",
+      "SectionName": "Security and Privacy policy",
+      "SectionName_AR": "سياسة الأمن والخصوصية",
+      "SectionDetails": "Dubai Culture & Arts Authority is committed to meet the customer satisfaction and promote secure modes of transaction of business with its customers. The obligation to protect the privacy rights of all our customers, who are visiting our websites, is of utmost importance to Dubai Culture & Arts Authority . Dubai Culture & Arts Authority Security & Privacy policy deals with Dubai Culture & Arts Authority’s guidelines related to information collection & usage of your personal information. Dubai Culture & Arts Authority uses its Website to:",
+      "SectionDetails_AR": "تلتزم هيئة الثقافة والفنون في دبي بتحقيق رضا المتعاملين وتوفير وسائل اتصال آمنة من خلال الالتزام بحماية حقوق زوار موقعنا. وتهتم سياسة الأمن الخصوصية الخاصة بهيئة الثقافة والفنون في دبي بالمبادئ التوجيهية المتصلة بجمع المعلومات واستخدام المعلومات الشخصية الخاصة بك ",
+      "SubSections": [
+        {
+          "Type": "SubSection",
+          "SectionName": "",
+          "SectionName_AR": "",
+          "SectionDetails": "- Collect personal information for the purpose of responding to a user's request or input, or to complete an online transaction. If a user chooses to provide Dubai Culture & Arts Authority with personal information, such as sending an e-mail to any of Dubai Culture & Arts Authority employee or by filling out and submitting an online form located on Dubai Culture & Arts Authority’s Website, Dubai Culture & Arts Authority may use that information to respond to the user's message and to assist in obtaining information the user may have requested. Dubai Culture & Arts Authority will not share other/s in the  e-mail addresses submitted by a user through Dubai Culture & Arts Authority’s website .",
+          "SectionDetails_AR": "- جمع المعلومات الشخصية لغرض الاستجابة لطلب المستخدم أو ادخال البيانات أو لإتمام المعاملات عبر الإنترنت. وإذا رغب المستخدم في توفير معلومات شخصية لهيئة الثقافة والفنون في دبي ، مثل إرسال بريد إلكتروني لموظف بالهيئة أو ملء وتقديم استمارة إلكترونية عبر الموقع الالكتروني ل هيئة الثقافة والفنون في دبي فقد تستخدم الهيئة تلك المعلومات للرد على رسالة المستخدم ومساعدته في الحصول على معلومات و/أو خدمات قد يطلبها، علما أن الهيئة لا تشرك أي طرف آخر في عناوين البريد الإلكتروني التي يقدمها المستخدم من خلال موقع هيئة الثقافة والفنون في دبي . ",
+          "SubSections": []
+        },
+        {
+          "Type": "SubSection",
+          "SectionName": "",
+          "SectionName_AR": "",
+          "SectionDetails": "- Provide electronic transaction capabilities, should a user provide any personal information and/or payment information while using Dubai Culture & Arts Authority’s Website. Such information may be collected, processed and disclosed to external Dubai Government Departments to complete an online transaction and for record-keeping for such activities as billing, permits, licenses and other business-related purposes .",
+          "SectionDetails_AR": "- توفير تسهيلات المعاملات الإلكترونية إذا ما رغب المستخدم في تقديم أية معلومات شخصية و / أو معلومات الدفع أثناء استخدام موقع هيئة الثقافة والفنون في دبي. ويمكن جمع هذه المعلومات ومعالجتها والإفصاح عنها للإدارات الخارجية لحكومة دبي لإتمام المعاملات عبر الإنترنت وحفظ السجلات للأنشطة مثل الفواتير والتصاريح والتراخيص وغيرها من الأغراض التجارية ذات الصلة .",
+          "SubSections": []
+        },
+        {
+          "Type": "SubSection",
+          "SectionName": "",
+          "SectionName_AR": "",
+          "SectionDetails": "- Collect usage statistics for site management, such as assessing what information is of most and least interest, determining technical design specifications, and identifying system performance issues. The information does not identify you personally. The following information about your visit will be collected :\n The Internet domain and/or IP address from which you access the Dubai Culture & Arts Authority’s Website\n The type of browser and operating system used to access Dubai Culture & Arts Authority’s Website\n The date and time of the visit\n The pages visited",
+          "SectionDetails_AR": "- جمع إحصائيات الاستخدام لإدارة الموقع الالكتروني، مثل تقييم ماهية المعلومات لمعرفة أكثرها وأقلها اهتماما، وتحديد مواصفات التصميم التقني، والتعرف على المسائل المتعلقة بأداء النظام، علما أن هذه المعلومات لا تتعرف عليك بصفتك الشخصية. هذا ويتم جمع المعلومات التالية حول زيارتك :\n موقع شبكة الإنترنت و/أو عنوان الانترنت (IP) الذي دخلت من خلاله إلى موقع هيئة الثقافة والفنون في دبي .\n نوع المتصفح ونظام التشغيل المستخدم للوصول إلى هيئة الثقافة والفنون في دبي ؛ \n تاريخ ووقت الزيارة؛ \n الصفحات التي قمت بزيارتها.",
+          "SubSections": []
+        }
+      ]
+    },
+    {
+      "Type": "Section",
+      "SectionName": "Transaction Security",
+      "SectionName_AR": "حماية معلوماتك",
+      "SectionDetails": "Dubai Culture & Arts Authority has secure mechanisms to protect the information provided to it by its customers. Dubai Culture & Arts Authority uses state of the art encryption techniques to protect all the information identified as sensitive, or any other data that is required to be secured to meet Dubai’s federal or local government regulations .",
+      "SectionDetails_AR": "توظف هيئة الثقافة والفنون في دبي آليات آمنة لحماية المعلومات المقدمة إليها من قبل متعامليها لحماية كافة المعلومات التي تم تعريفها بأنها حساسة، أو أي بيانات أخرى مطلوب حمايتها من أجل الوفاء بمتطلبات اللوائح الاتحادية أو المحلية الخاصة بحكومة دبي .",
+      "SubSections": []
+    },
+    {
+      "Type": "Section",
+      "SectionName": "Right to review, amend or correct personal details",
+      "SectionName_AR": "الحق في معاينة، تعديل أو تصحيح البيانات الشخصية",
+      "SectionDetails": "any user supplying us with his /her personal details is entitled to review, or you can request to modify your personal information by sending an online message to info@dubaiculture.ae",
+      "SectionDetails_AR": "يحق لأي مستخدم يزودنا بمعلوماته الشخصية معاينة أو تعديل أو تصحيح معلوماته الشخصية في أي وقت . وذلك من خلال إرسال رسالة إلكترونية إلى  info@dubaiculture.ae",
+      "SubSections": []
+    },
+    {
+      "Type": "Section",
+      "SectionName": "Other websites and Applications",
+      "SectionName_AR": "مواقع وتطبيقات اخرى",
+      "SectionDetails": "the privacy policy applies only to the website of the Dubai Culture & Arts Authority. In the event of shifting to another website though the link provided at Dubai Culture & Arts Authority website, you should read the privacy policy of that website so as to be aware of the applicable practices.  Dubai Culture & Arts Authority will therefore not accept responsibility or liability for any harm or loss incurred as a result of surfing that website.",
+      "SectionDetails_AR": "حتوي موقع هيئة الثقافة والفنون في دبي على روابط مع العديد من المواقع التي أنشأتها وتحتفظ بها لدوائر عامة أو جهات خاصة أخرى، ونحن نقدم هذه الروابط كخدمة لمستخدمينا، و عندما يرتبط المستخدمون بموقع خارجي، فإنهم يغادرون موقع هيئة الثقافة والفنون في دبي ويخضعون بالتالي لسياسات الخصوصية والأمن الخاص بأصحاب / ورعاة الموقع الخارجي/ المواقع الخارجية.ينطبق نهج الخصوصية هذا على الموقع الالكتروني لهيئة الثقافة والفنون في دبي فقط. وفي حال انتقلت إلى موقع آخر من خلال رابط موجود في صفحات موقع هيئة دبي  للثقافة والفنون ، فإنه يتعين عليك قراءة نهج الخصوصية الخاص بذلك الموقع لتحديد الممارسات المعتمدة هناك و عليه فإن هيئة دبي للثقافة والفنون في غير مسؤولة عن أي أضرار تنتج عن الدخول لهذه المواقع.",
+      "SubSections": []
+    }
+  ]
+}

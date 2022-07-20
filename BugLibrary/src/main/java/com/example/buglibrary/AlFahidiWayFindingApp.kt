@@ -35,6 +35,7 @@ class AlFahidiWayFindingApp : Application(), HasAndroidInjector,
 
         DaggerAppComponent.builder().application(this)
             .build().inject(this)
+      //  Mapbox.getInstance(this,getString(R.string.mapbox_access_token))
 
         registerActivityLifecycleCallbacks(this)
 

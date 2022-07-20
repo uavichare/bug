@@ -1,6 +1,8 @@
 package com.example.buglibrary.ui.home
 
+
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.content.IntentSender
 import android.graphics.Bitmap
@@ -21,6 +23,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
+import android.widget.Toast
 import androidx.annotation.DrawableRes
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
@@ -41,18 +44,16 @@ import com.example.buglibrary.AlFahidiWayFindingApp
 import com.example.buglibrary.SDKActivity
 import com.example.buglibrary.R
 import com.example.buglibrary.data.Poi
+import com.example.buglibrary.data.Result
 import com.example.buglibrary.databinding.FragmentHomeBinding
-
 import com.example.buglibrary.di.Injectable
 import com.example.buglibrary.helper.AppConstant
 import com.example.buglibrary.helper.PreferenceHelper
 import com.example.buglibrary.helper.PreferenceHelper.get
 import com.example.buglibrary.helper.PreferenceHelper.set
 import com.example.buglibrary.manager.LocaleManager
-import com.example.buglibrary.utils.CommonUtils
-import com.example.buglibrary.data.Result
-
 import com.example.buglibrary.ui.home.ar.ArActivity
+import com.example.buglibrary.utils.CommonUtils
 import com.example.buglibrary.utils.GeoCentricUtil
 import com.example.buglibrary.utils.SessionUtils
 import com.example.buglibrary.utils.ext.injectViewModel
@@ -133,10 +134,8 @@ class HomeFragment : Fragment(), Injectable,
             }
             binding.btnArView.setOnClickListener {
                 if (SessionUtils.checkIsSupportedDeviceOrFinish(requireActivity())) {
-/*
                     val direction = HomeFragmentDirections.actionNavigationFragment(poi)
                     findNavController().navigate(direction)
-*/
                 } else {
                     Snackbar.make(it, "Your device doesn't support AR", Snackbar.LENGTH_SHORT)
                         .show()
@@ -150,7 +149,7 @@ class HomeFragment : Fragment(), Injectable,
         }
         app.mapViewModel = mapViewModel
 //        app.poi?.let {
-        mapViewModel.routePath.observe(viewLifecycleOwner) { jsonArray ->
+        mapViewModel.routePath.observe(viewLifecycleOwner, { jsonArray ->
             if (jsonArray != null) {
 
                 drawRoute(jsonArray)
@@ -159,7 +158,7 @@ class HomeFragment : Fragment(), Injectable,
 //                stopNavigation()
             }
 
-        }
+        })
 //        }
 
 
@@ -242,14 +241,12 @@ class HomeFragment : Fragment(), Injectable,
         ) {
 
 
-           // enableLocationComponent()
-
-
+            enableLocationComponent(requireContext())
             homeViewModel.mapPoi(getString(R.string.app_token))
-                .observe(viewLifecycleOwner) { result ->
+                .observe(viewLifecycleOwner, { result ->
                     when (result.status) {
                         Result.Status.SUCCESS -> {
-//                           mapViewModel.setupIA(requireContext())
+//                            mapViewModel.setupIA(requireContext())
                             if (result.data.isNullOrEmpty().not()) {
                                 poiList = result.data
 
@@ -293,9 +290,7 @@ class HomeFragment : Fragment(), Injectable,
                         }
 
                     }
-                }
-
-
+                })
             lifecycleScope.launch {
                 delay(1500)
                 animateCamera(LatLng(25.264181, 55.300155), 18.0)
@@ -763,7 +758,7 @@ class HomeFragment : Fragment(), Injectable,
     }
 
     @SuppressLint("MissingPermission")
-    private fun enableLocationComponent() {
+    fun enableLocationComponent(context: Context) {
 // Check if permissions are enabled and if not request
 
         if (PermissionsManager.areLocationPermissionsGranted(context)) {
@@ -873,7 +868,7 @@ class HomeFragment : Fragment(), Injectable,
         if (granted) {
             mapViewModel.setupIA(requireContext())
             mapboxMap?.getStyle {
-                enableLocationComponent()
+                enableLocationComponent(requireContext())
 
             }
         }
@@ -906,8 +901,9 @@ class HomeFragment : Fragment(), Injectable,
             app.poi = null
 
         }
-        mapViewModel.iaLocation.observe(viewLifecycleOwner, {
+        mapViewModel.iaLocation.observe(viewLifecycleOwner) {
 
+            Toast.makeText(requireContext(),it?.longitude.toString(),Toast.LENGTH_LONG).show()
             currentLocation = it?.toLocation()
             lifecycleScope.launch {
                 if (poiList != null) {
@@ -932,7 +928,7 @@ class HomeFragment : Fragment(), Injectable,
                 }
 
             }
-        })
+        }
         mapViewModel.reRoute.observe(viewLifecycleOwner, {
             poi?.let {
                 mapViewModel.destinationPoi(it)

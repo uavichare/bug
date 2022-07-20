@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">The Smart Guide</string>
+    <string name="app_name">Al Fahidi Historical Wayfinding</string>
 
 
     <!--indoor atlas key-->
@@ -190,4 +190,5 @@
     <string name="require_permission_message">We require location permission to provide you with a better navigation experience.</string>
     <string name="proceed">Proceed</string>
     <string name="deny">Deny</string>
+    <string name="tour_guide">Tour guide</string>
 </resources>

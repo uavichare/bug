@@ -90,6 +90,7 @@ class SDKActivity : AppCompatActivity(), HasAndroidInjector, PermissionsListener
      * Map for storing information about airports in the San Francisco bay area.
      */
 
+    private var INSTANCE: SDKActivity? = null
 
     var BAY_AREA_LANDMARKS: HashMap<String, LatLng> = HashMap()
 
@@ -98,14 +99,26 @@ class SDKActivity : AppCompatActivity(), HasAndroidInjector, PermissionsListener
         return dispatchingAndroidInjector
     }
 
+    fun getInstance(): SDKActivity? {
+        if (INSTANCE == null) {
+            synchronized(this) {
+                if (INSTANCE == null) {
+                    INSTANCE = SDKActivity()
+                }
+            }
+        }
+        return INSTANCE
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         //  viewModel = injectViewModel(viewModelProvider)
+       // callMapbox(this,getString(R.string.mapbox_access_token))
+       // setIAKEYS(this,"675933d8-45d2-4397-aef6-80bcf5861fed","rxNJoW/xt1iVy3BA5c0r69tjf6097VxsW9dz56JzOnQsRbcD3qGDyKT0e3iA1XGEpn2N5JHL7FpgZSyuF5BKSXXWqJ+Y2nWqr8lXa5lmECBYOxiZzXnCih5Ozljgag==")
 
-
-        //Mapbox.getInstance(this,sharePreferenceObject(this)[AppConstant.MAPBOX_TOKEN])
+       Mapbox.getInstance(this,sharePreferenceObject(this)[AppConstant.MAPBOX_TOKEN])
         BAY_AREA_LANDMARKS["DCAA"] = LatLng(25.264106314899042, 55.30021935514805)
         BAY_AREA_LANDMARKS["home"] = LatLng(20.5448449, 74.5416257)
         mGeofenceList = ArrayList()
@@ -228,6 +241,9 @@ class SDKActivity : AppCompatActivity(), HasAndroidInjector, PermissionsListener
               true
           }*/
         configureSearch()
+
+       // setIAKEYS(this,"675933d8-45d2-4397-aef6-80bcf5861fed","rxNJoW/xt1iVy3BA5c0r69tjf6097VxsW9dz56JzOnQsRbcD3qGDyKT0e3iA1XGEpn2N5JHL7FpgZSyuF5BKSXXWqJ+Y2nWqr8lXa5lmECBYOxiZzXnCih5Ozljgag==")
+
 
         /*  colourTextHeader(binding.navView.menu.findItem(R.id.account))
           colourTextHeader(binding.navView.menu.findItem(R.id.smart_guide))
@@ -373,10 +389,13 @@ class SDKActivity : AppCompatActivity(), HasAndroidInjector, PermissionsListener
                 val list = search(it)
                 if (list?.isNotEmpty() == true) {
                     content.recyclerViewSearch.visibility = View.VISIBLE
+                    content.placesAroundYou.visibility=View.VISIBLE
                     searchAdapter.submitList(list)
 
                 } else {
                     content.recyclerViewSearch.visibility = View.GONE
+                    content.placesAroundYou.visibility=View.GONE
+
                 }
             }
         }
@@ -683,22 +702,23 @@ class SDKActivity : AppCompatActivity(), HasAndroidInjector, PermissionsListener
 */
     }
 
-    fun setIAKEYS(context: Context, apiKey: String, secretKey: String) {
-        sharePreferenceObject(context)[AppConstant.INDOOR_ATlAS_APIKEY] = apiKey
-        sharePreferenceObject(context)[AppConstant.INDOOR_ATlAS_SECRETKEY] = secretKey
-    }
+    companion object SDKMethods {
+        fun setIAKEYS(context: Context, apiKey: String, secretKey: String) {
+            sharePreferenceObject(context)[AppConstant.INDOOR_ATlAS_APIKEY] = apiKey
+            sharePreferenceObject(context)[AppConstant.INDOOR_ATlAS_SECRETKEY] = secretKey
+        }
+        fun sharePreferenceObject(context: Context): SharedPreferences {
+            return PreferenceHelper.defaultPrefs(context)
 
-
-    fun callMapbox(context: Context, token: String) {
-        Mapbox.getInstance(context, token)
-        findNavController(R.id.nav_host_fragment).setGraph(R.navigation.mobile_navigation)
-    }
-
-
-    fun sharePreferenceObject(context: Context): SharedPreferences {
-        return PreferenceHelper.defaultPrefs(context)
+        }
+        fun callMapbox(context: Context, token: String) {
+            sharePreferenceObject(context)[AppConstant.MAPBOX_TOKEN] =token
+        }
 
     }
+
+
+
 
 
 }

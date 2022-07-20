@@ -69,7 +69,7 @@ public class Jarvis extends Observable {
     }
 
     public void setRouteDestination(LatLng latLng, int floor) {
-        Log.d("TAG", "setRouteDestination: "+smartWayFinder);
+        Log.d("TAG", "setRouteDestination: " + smartWayFinder);
         if (smartWayFinder == null) {
 //            Toast.makeText(mContext, "Error", Toast.LENGTH_LONG).show();
             return;
@@ -86,6 +86,4 @@ public class Jarvis extends Observable {
         }
 
     }
-
-
 }
