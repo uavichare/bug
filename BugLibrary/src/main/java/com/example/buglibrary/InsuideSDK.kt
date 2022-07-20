@@ -14,7 +14,7 @@ public class InsuideSDK {
     {
         SDKActivity().callMapbox(token)
     }
-   public fun OpenSdkScreen(c: Context, apiKey: String?, secretKey: String?, accessToken: String?) {
+   public fun OpenSdkScreen(c: Context) {
         var intent: Intent? = null
         try {
             intent = Intent(c, Class.forName("com.example.buglibrary.SDKActivity"))
