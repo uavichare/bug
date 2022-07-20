@@ -5,7 +5,6 @@ import android.app.Activity
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
@@ -24,32 +23,29 @@ import androidx.core.view.GravityCompat
 import androidx.fragment.app.FragmentContainerView
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.buglibrary.data.Poi
-import com.example.buglibrary.databinding.ActivityMainBinding
 import com.example.buglibrary.helper.AppConstant
 import com.example.buglibrary.helper.PreferenceHelper
+import com.example.buglibrary.helper.PreferenceHelper.set
 import com.example.buglibrary.helper.PreferenceHelper.get
+
 import com.example.buglibrary.manager.LocaleManager
-import com.example.buglibrary.services.GeofenceBroadcastReceiver
-import com.example.buglibrary.ui.home.HomeFragment
-import com.example.buglibrary.ui.home.SearchAdapter
-import com.example.buglibrary.ui.terms.TermsPrivacyViewModel
-import com.example.buglibrary.utils.ext.injectViewModel
 import com.google.android.gms.location.Geofence
 import com.google.android.gms.location.GeofencingClient
 import com.google.android.gms.location.GeofencingRequest
 import com.google.android.gms.location.LocationServices
-import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.dynamiclinks.DynamicLink
 import com.google.firebase.dynamiclinks.FirebaseDynamicLinks
-import com.google.firebase.messaging.FirebaseMessaging
+import com.example.buglibrary.databinding.ActivityMainBinding
+import com.example.buglibrary.services.GeofenceBroadcastReceiver
+import com.example.buglibrary.ui.home.HomeFragment
+import com.example.buglibrary.ui.home.SearchAdapter
 import com.mapbox.android.core.permissions.PermissionsListener
 import com.mapbox.android.core.permissions.PermissionsManager
 import com.mapbox.mapboxsdk.Mapbox
@@ -67,11 +63,11 @@ import java.util.regex.Pattern
 import javax.inject.Inject
 
 
-class MainActivity : AppCompatActivity(), HasAndroidInjector, PermissionsListener {
+class SDKActivity : AppCompatActivity(), HasAndroidInjector, PermissionsListener {
     @Inject
     lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Any>
 
-    private lateinit var appBarConfiguration: AppBarConfiguration
+    //  private lateinit var appBarConfiguration: AppBarConfiguration
     private var homeFragment: HomeFragment? = null
 
     @ExperimentalCoroutinesApi
@@ -80,7 +76,6 @@ class MainActivity : AppCompatActivity(), HasAndroidInjector, PermissionsListene
 
     @Inject
     lateinit var viewModelProvider: ViewModelProvider.Factory
-    private lateinit var viewModel: TermsPrivacyViewModel
 
     private var permissionsManager: PermissionsManager? = null
     lateinit var navHostFragment: FragmentContainerView
@@ -88,13 +83,14 @@ class MainActivity : AppCompatActivity(), HasAndroidInjector, PermissionsListene
     // geofence
     lateinit var geofencingClient: GeofencingClient
     private var mGeofenceList: ArrayList<Geofence>? = null
-
+    lateinit var  navController:NavController
     /**
      * Map for storing information about airports in the San Francisco bay area.
      */
 
 
     var BAY_AREA_LANDMARKS: HashMap<String, LatLng> = HashMap()
+    val pref = PreferenceHelper.defaultPrefs(this)
 
 
     override fun androidInjector(): AndroidInjector<Any> {
@@ -105,48 +101,43 @@ class MainActivity : AppCompatActivity(), HasAndroidInjector, PermissionsListene
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        viewModel = injectViewModel(viewModelProvider)
+        //  viewModel = injectViewModel(viewModelProvider)
 
-
+        Mapbox.getInstance(this,pref[AppConstant.MAPBOX_TOKEN])
         BAY_AREA_LANDMARKS["DCAA"] = LatLng(25.264106314899042, 55.30021935514805)
         BAY_AREA_LANDMARKS["home"] = LatLng(20.5448449, 74.5416257)
         mGeofenceList = ArrayList()
         populateGeofenceList()
         geofencingClient = LocationServices.getGeofencingClient(this)
 
+        val notification = intent.getStringExtra(AppConstant.NOTIFICATION_TYPE)
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        navController= findNavController(R.id.nav_host_fragment)
 
-       // val pref = PreferenceHelper.defaultPrefs(this)
-       // val isFirstTime: Boolean? = pref[AppConstant.ON_BOARDING]
-        val extras = intent.extras
-        if (extras != null) {
-            val apiKey = extras.getString("API_KEY")
-            val secretKey = extras.getString("SECRET_KEY")
-            val mapboxToken = extras.getString("MAPBOX_ACCESSTOKEN")
-            Mapbox.getInstance(this,mapboxToken)
+        //setIAKEYS()
+        navHostFragment = findViewById(R.id.nav_host_fragment)
 
+        // val navController by lazy { findNavController(R.id.nav_host_fragment) }
 
+        navController.setGraph(R.navigation.mobile_navigation)
+        supportActionBar?.setDisplayShowHomeEnabled(true);
+        supportActionBar?.setIcon(R.drawable.ic_back);
+        toolbar.setNavigationOnClickListener{
+            navController.popBackStack()
 
-        try {
-            val applicationInfo =
-                packageManager.getApplicationInfo(packageName, PackageManager.GET_META_DATA)
-            applicationInfo.metaData.putString("com.indooratlas.android.sdk.API_KEY",apiKey)
-            applicationInfo.metaData.putString("com.indooratlas.android.sdk.API_SECRET",secretKey)
-
-            val abc:String?= applicationInfo.metaData.getString("com.indooratlas.android.sdk.API_SECRET")
-            Toast.makeText(this,abc,Toast.LENGTH_LONG).show()
-        } catch (e: PackageManager.NameNotFoundException) {
-            e.printStackTrace()
         }
 
-
-
-
-
-
-            //The key argument here must match that used in the other activity
-        }
+        setPermission()
 
 /*
+        val fragmet= navController.currentDestination as? HomeFragment
+        // fragmet?.enableLocationComponent(this)
+*/
+
+/*
+        val pref = PreferenceHelper.defaultPrefs(this)
+        val isFirstTime: Boolean? = pref[AppConstant.ON_BOARDING]
         if (!isFirstTime!!) {
 //            pref[AppConstant.ON_BOARDING] = true
             val graphInflater = navController.navInflater
@@ -158,36 +149,23 @@ class MainActivity : AppCompatActivity(), HasAndroidInjector, PermissionsListene
         }
 */
 
-
-       // val notification = intent.getStringExtra(AppConstant.NOTIFICATION_TYPE)
-        val toolbar: Toolbar = findViewById(R.id.toolbar)
-        setSupportActionBar(toolbar)
-
-        navHostFragment = findViewById(R.id.nav_host_fragment)
-        val navController by lazy { findNavController(R.id.nav_host_fragment) }
-        navController.setGraph(R.navigation.mobile_navigation)
-        //setPermission()
-
-
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
-
+/*
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home/*, R.id.nav_favourite, R.id.nav_attraction,
+                R.id.nav_home, R.id.nav_favourite, R.id.nav_attraction,
                 R.id.nav_notification, R.id.nav_help, R.id.nav_happiness_meter,
                 R.id.nav_contact_us, R.id.nav_about_us, R.id.nav_share_app,
-                R.id.nav_privacy, R.id.nav_language, R.id.nav_settings*/
+                R.id.nav_privacy, R.id.nav_language, R.id.nav_settings
             ), binding.drawerLayout
         )
-
+*/
 /*
         val navHostFragment1 =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val fragment = navHostFragment1.childFragmentManager.fragments[0]
-*/
 
-/*
         if (fragment is HomeFragment) {
             homeFragment = fragment
         }
@@ -217,20 +195,19 @@ class MainActivity : AppCompatActivity(), HasAndroidInjector, PermissionsListene
 
         }
 */
-        navController.addOnDestinationChangedListener { _, destination, _ ->
-            if (destination.id != R.id.guideFragment) {
-                setToolBarVisibility(View.VISIBLE)
-            }
-        }
+        /*  navController.addOnDestinationChangedListener { _, destination, _ ->
+              if (destination.id != R.id.guideFragment) {
+                  setToolBarVisibility(View.VISIBLE)
+              }
+          }
 
-/*
-        if (isFirstTime == true) {
-            //askSinglePermissions.launch(Manifest.permission.ACCESS_BACKGROUND_LOCATION)
-        }
-*/
-
-        setupActionBarWithNavController(navController, appBarConfiguration)
-      //  binding.navView.setupWithNavController(navController)
+          if (isFirstTime) {
+              setPermission()
+              //askSinglePermissions.launch(Manifest.permission.ACCESS_BACKGROUND_LOCATION)
+          }
+  */
+        //setupActionBarWithNavController(navController, appBarConfiguration)
+        // binding.navView.setupWithNavController(navController)
         //navItem(navHostFragment)
 /*
         notification?.let {
@@ -250,22 +227,14 @@ class MainActivity : AppCompatActivity(), HasAndroidInjector, PermissionsListene
           }*/
         configureSearch()
 
+        /*  colourTextHeader(binding.navView.menu.findItem(R.id.account))
+          colourTextHeader(binding.navView.menu.findItem(R.id.smart_guide))
+          colourTextHeader(binding.navView.menu.findItem(R.id.your_voice))
+          colourTextHeader(binding.navView.menu.findItem(R.id.information))
+          colourTextHeader(binding.navView.menu.findItem(R.id.settings))
+          fcmToken()
 
-        supportActionBar?.setHomeButtonEnabled(true);
-        supportActionBar?.setDisplayHomeAsUpEnabled(true);
-        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_back);//your icon here
-
-
-/*
-        colourTextHeader(binding.navView.menu.findItem(R.id.account))
-        colourTextHeader(binding.navView.menu.findItem(R.id.smart_guide))
-        colourTextHeader(binding.navView.menu.findItem(R.id.your_voice))
-        colourTextHeader(binding.navView.menu.findItem(R.id.information))
-        colourTextHeader(binding.navView.menu.findItem(R.id.settings))
-*/
-       // fcmToken()
-
-
+  */
     }
 
 
@@ -316,6 +285,7 @@ class MainActivity : AppCompatActivity(), HasAndroidInjector, PermissionsListene
     }
 
 
+/*
     private fun fcmToken() {
 
         FirebaseMessaging.getInstance().token
@@ -326,11 +296,12 @@ class MainActivity : AppCompatActivity(), HasAndroidInjector, PermissionsListene
                 val fcmRegToken = task.result?.toString()
 
                 Log.d("TAG", "fcmToken: $fcmRegToken")
-                //ipDetail(fcmRegToken!!)
+              //  ipDetail(fcmRegToken!!)
 
 
             })
     }
+*/
 
     private fun populateGeofenceList() {
         for ((key, value) in BAY_AREA_LANDMARKS.entries) {
@@ -400,13 +371,10 @@ class MainActivity : AppCompatActivity(), HasAndroidInjector, PermissionsListene
                 val list = search(it)
                 if (list?.isNotEmpty() == true) {
                     content.recyclerViewSearch.visibility = View.VISIBLE
-                    content.placesAroundYou.visibility=View.VISIBLE
                     searchAdapter.submitList(list)
 
                 } else {
                     content.recyclerViewSearch.visibility = View.GONE
-                    content.placesAroundYou.visibility=View.GONE
-
                 }
             }
         }
@@ -455,8 +423,7 @@ class MainActivity : AppCompatActivity(), HasAndroidInjector, PermissionsListene
         val regex = ".*" + query.trim().toLowerCase(Locale.ROOT) + ".*"
         val pattern = Pattern.compile(regex)
 
-        val filterList = navHostFragment.getFragment<HomeFragment>()
-                .poiList?.filter {
+        val filterList = navHostFragment.getFragment<HomeFragment>().poiList?.filter {
             pattern.matcher(it.poiMultilingual?.en?.name?.toLowerCase(Locale.ROOT)!!).matches() ||
                     pattern.matcher(it.poiMultilingual?.arabic?.name?.toLowerCase(Locale.ROOT)!!)
                         .matches()
@@ -471,12 +438,13 @@ class MainActivity : AppCompatActivity(), HasAndroidInjector, PermissionsListene
         val versionMenu = binding.navView.menu.findItem(R.id.nav_log_version)
         val version = versionMenu.actionView.findViewById<TextView>(R.id.version)
         val date = versionMenu.actionView.findViewById<TextView>(R.id.date)
-      //  version.text = getString(R.string.version, BuildConfig.VERSION_NAME)
+        version.text = getString(R.string.version, BuildConfig.VERSION_NAME)
         val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH)
-       // date.text = dateFormat.format(Date(BuildConfig.BUILD_TIME.toLong()))
+        date.text = dateFormat.format(Date(BuildConfig.BUILD_TIME.toLong()))
+*/
+/*
         binding.navView.setNavigationItemSelectedListener {
-          */
-/*  toggleDrawer()
+            toggleDrawer()
             if (it.itemId == R.id.nav_attraction) {
                 setSearchVisibility(View.VISIBLE)
             } else {
@@ -505,6 +473,7 @@ class MainActivity : AppCompatActivity(), HasAndroidInjector, PermissionsListene
                 R.id.nav_rate_us -> {
 
 *//*
+
 */
 /*
                     IntentUtils.openWebPage(
@@ -514,6 +483,7 @@ class MainActivity : AppCompatActivity(), HasAndroidInjector, PermissionsListene
 *//*
 */
 /*
+
                     Snackbar.make(
                         navHostFragment,
                         "This feature will be available once the application goes to production.",
@@ -544,6 +514,7 @@ class MainActivity : AppCompatActivity(), HasAndroidInjector, PermissionsListene
 
 
 *//*
+
 */
 /*
                     IntentUtils.shareText(
@@ -556,6 +527,7 @@ class MainActivity : AppCompatActivity(), HasAndroidInjector, PermissionsListene
 /*
 
 
+
                     createLink(this)
                 }
                 R.id.nav_related_apps -> {
@@ -566,54 +538,12 @@ class MainActivity : AppCompatActivity(), HasAndroidInjector, PermissionsListene
                     customTabsIntent.launchUrl(this, Uri.parse(url))
 
                 }
-                R.id.nav_about_us -> {
-                    val bundle = Bundle()
-                    bundle.putInt(Intent.EXTRA_TEXT, 1)
-                    Navigation.findNavController(navHostFragment)
-                        .navigate(R.id.newAboutUsFragment, bundle)
-                }
-                R.id.nav_privacy -> {
-                    val bundle = Bundle()
-                    bundle.putInt(Intent.EXTRA_TEXT, 2)
-                    Navigation.findNavController(navHostFragment)
-                        .navigate(R.id.termsPrivacyFragment, bundle)
-                }
-*//*
-*/
-/*
-                R.id.nav_terms_condition -> {
-                    val bundle = Bundle()
-                    bundle.putInt(Intent.EXTRA_TEXT, 3)
-                    Navigation.findNavController(navHostFragment)
-                        .navigate(R.id.termsPrivacyFragment, bundle)
-                }
-*//*
-*/
-/*
-                R.id.nav_contact_us -> {
-                    Navigation.findNavController(navHostFragment)
-                        .navigate(R.id.nav_contact_us)
-                }
-                R.id.nav_happiness_meter -> {
-                    Navigation.findNavController(navHostFragment)
-                        .navigate(R.id.happinessFragment)
-                }
-                R.id.nav_language -> {
-                    Navigation.findNavController(navHostFragment)
-                        .navigate(R.id.nav_language)
-                }
-                R.id.nav_accessbility -> {
-                    val intent = Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS)
-                    startActivity(intent)
-                }
-                R.id.nav_settings -> {
 
-                    confirmationDialog()
-                }
-            }*//*
-
+            }
             true
         }
+*//*
+
     }
 */
 
@@ -654,7 +584,6 @@ class MainActivity : AppCompatActivity(), HasAndroidInjector, PermissionsListene
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)
-        finish()
         return true
     }
 
@@ -671,20 +600,15 @@ class MainActivity : AppCompatActivity(), HasAndroidInjector, PermissionsListene
         super.attachBaseContext(LocaleManager.setLocale(newBase!!))
     }
 
-    /*  override fun onOptionsItemSelected(item: MenuItem): Boolean {
-          val navController = findNavController(R.id.nav_host_fragment)
-          Log.d("TAG", "onOptionsItemSelected: ${item.itemId}")
-          return item.onNavDestinationSelected(navController) || super.onOptionsItemSelected(item)
-      }*/
 
     override fun onBackPressed() {
-        if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            binding.drawerLayout.closeDrawer(GravityCompat.START)
-        } else if (homeFragment?.isNavigationLayoutVisible()!!) {
-            homeFragment?.stopNavigation()
-        } else {
-            super.onBackPressed()
-        }
+        /* if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
+             binding.drawerLayout.closeDrawer(GravityCompat.START)
+         } else if (homeFragment?.isNavigationLayoutVisible()!!) {
+             homeFragment?.stopNavigation()
+         } else {
+        */     super.onBackPressed()
+        //}
 
 
     }
@@ -730,11 +654,11 @@ class MainActivity : AppCompatActivity(), HasAndroidInjector, PermissionsListene
             .setLink(deepLink)
             .setDynamicLinkDomain(appCode)
             .setAndroidParameters(DynamicLink.AndroidParameters.Builder().build())
-           /* .setIosParameters(
+            .setIosParameters(
                 DynamicLink.IosParameters.Builder("com.dubaiculture.smartguide")
                     .setCustomScheme("dlscheme").build()
             )
-*/
+
             .buildDynamicLink()
         return dynamicLink.uri
     }
@@ -756,4 +680,43 @@ class MainActivity : AppCompatActivity(), HasAndroidInjector, PermissionsListene
         }
 */
     }
+
+    fun setIAKEYS(apiKey:String,secretKey:String) {
+       // pref[AppConstant.INDOOR_ATlAS_APIKEY] ="675933d8-45d2-4397-aef6-80bcf5861fed"
+        //pref[AppConstant.INDOOR_ATlAS_SECRETKEY] ="rxNJoW/xt1iVy3BA5c0r69tjf6097VxsW9dz56JzOnQsRbcD3qGDyKT0e3iA1XGEpn2N5JHL7FpgZSyuF5BKSXXWqJ+Y2nWqr8lXa5lmECBYOxiZzXnCih5Ozljgag=="
+
+        pref[AppConstant.INDOOR_ATlAS_APIKEY] =apiKey
+        pref[AppConstant.INDOOR_ATlAS_SECRETKEY] =secretKey
+
+        // val navController by lazy { findNavController(R.id.nav_host_fragment) }
+
+        //navController.setGraph(R.navigation.mobile_navigation)
+
+        // navHostFragment.getFragment<HomeFragment>().enableLocationComponent()
+        // (fragment as HomeFragment).enableLocationComponent()
+
+        // val fragmet= navController.currentDestination as? HomeFragment
+        // fragmet?.enableLocationComponent()
+
+
+        //((Activity)Home).enableLocationComponent()
+    }
+
+
+
+    fun callMapbox(token:String)
+    {
+        pref[AppConstant.MAPBOX_TOKEN] =token
+
+
+
+
+    }
+
+
+
+
+
+
+
 }

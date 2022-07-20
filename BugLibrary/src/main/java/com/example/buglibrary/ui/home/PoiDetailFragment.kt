@@ -12,10 +12,9 @@ import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.tabs.TabLayoutMediator
 import com.example.buglibrary.AlFahidiWayFindingApp
-import com.example.buglibrary.MainActivity
+import com.example.buglibrary.SDKActivity
 import com.example.buglibrary.R
 import com.example.buglibrary.data.Poi
-import com.example.buglibrary.data.Result
 import com.example.buglibrary.databinding.PoiDetailFragmentBinding
 import com.example.buglibrary.di.Injectable
 import com.example.buglibrary.manager.LocaleManager
@@ -103,7 +102,7 @@ class PoiDetailFragment : Fragment(), Injectable, View.OnClickListener {
         binding.buttonFavourite.setOnClickListener(this)
         binding.buttonMic.setOnClickListener(this)
         binding.buttonVideo.setOnClickListener(this)
-        (activity as MainActivity).setSearchVisibility(View.GONE)
+        (activity as SDKActivity).setSearchVisibility(View.GONE)
         return binding.root
 
     }

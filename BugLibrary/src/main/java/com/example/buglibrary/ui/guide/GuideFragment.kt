@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.tabs.TabLayoutMediator
-import com.example.buglibrary.MainActivity
+import com.example.buglibrary.SDKActivity
 import com.example.buglibrary.R
 import com.example.buglibrary.databinding.GuideFragmentBinding
 
@@ -35,9 +35,9 @@ class GuideFragment : Fragment() {
         binding.viewPagerGuide.adapter = GuidePagerAdapter(this, imageList)
         TabLayoutMediator(binding.tabLayoutGuide, binding.viewPagerGuide) { _, _ ->
         }.attach()
-        (activity as MainActivity).setToolBarVisibility(View.GONE)
+        (activity as SDKActivity).setToolBarVisibility(View.GONE)
         binding.buttonBack.setOnClickListener {
-            (activity as MainActivity).setToolBarVisibility(View.VISIBLE)
+            (activity as SDKActivity).setToolBarVisibility(View.VISIBLE)
             findNavController().popBackStack()
         }
         return binding.root

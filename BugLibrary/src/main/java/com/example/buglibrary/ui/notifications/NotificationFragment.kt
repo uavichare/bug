@@ -1,15 +1,13 @@
 package com.example.buglibrary.ui.notifications
 
 import android.os.Bundle
-import android.util.Log
 import android.view.*
-import androidx.core.util.forEach
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.messaging.FirebaseMessaging
-import com.example.buglibrary.MainActivity
+import com.example.buglibrary.SDKActivity
 import com.example.buglibrary.R
 import com.example.buglibrary.data.NotificationModel
 import com.example.buglibrary.data.Result
@@ -35,15 +33,15 @@ class NotificationFragment : Fragment(), Injectable {
     private var actionMode: ActionMode? = null
     private var notificationList: List<NotificationModel>? = null
     private val idsList = ArrayList<String>()
-    private lateinit var mainActivity: MainActivity
+    private lateinit var mainActivity: SDKActivity
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = NotificationFragmentBinding.inflate(inflater, container, false)
         viewModel = injectViewModel(viewModelProvider)
-        if (context is MainActivity) {
-            mainActivity = context as MainActivity
+        if (context is SDKActivity) {
+            mainActivity = context as SDKActivity
         }
         fcmToken()
         actionModeCallback = ActionModeCallBack()

@@ -7,14 +7,14 @@ import android.view.ViewGroup
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.buglibrary.MainActivity
+import com.example.buglibrary.SDKActivity
 import com.example.buglibrary.R
 import com.example.buglibrary.data.Poi
 import com.example.buglibrary.databinding.ItemSearchBinding
 import com.example.buglibrary.manager.LocaleManager
 import com.example.buglibrary.utils.SearchDiffUtilCallback
 
-class SearchAdapter(val mainActivity: MainActivity) :
+class SearchAdapter(val mainActivity: SDKActivity) :
     ListAdapter<Poi, SearchAdapter.SearchViewHolder>(SearchDiffUtilCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchViewHolder {

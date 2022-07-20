@@ -1,20 +1,12 @@
 package com.example.buglibrary.ui.onbording
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.PopupWindow
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayoutMediator
-import com.example.buglibrary.MainActivity
-import com.example.buglibrary.helper.AppConstant
-import com.example.buglibrary.helper.PreferenceHelper
-import com.example.buglibrary.helper.PreferenceHelper.set
+import com.example.buglibrary.SDKActivity
 import com.example.buglibrary.manager.LocaleManager
-import com.google.android.material.snackbar.Snackbar
 import android.view.*
 import com.example.buglibrary.R
 import com.example.buglibrary.databinding.FragmentOnBoardingBinding
@@ -39,7 +31,7 @@ class OnBoardingFragment : Fragment() {
         TabLayoutMediator(binding.tabLayoutGuide, binding.viewPagerOnBoarding) { _, _ ->
         }.attach()
 
-        (activity as MainActivity).setToolBarVisibility(View.GONE)
+        (activity as SDKActivity).setToolBarVisibility(View.GONE)
 
         binding.viewPagerOnBoarding.registerOnPageChangeCallback(object :
             ViewPager2.OnPageChangeCallback() {
@@ -71,7 +63,7 @@ class OnBoardingFragment : Fragment() {
             }
 
             LocaleManager.setNewLocale(requireContext(), language)
-            val i = Intent(context, MainActivity::class.java)
+            val i = Intent(context, SDKActivity::class.java)
             startActivity(i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK))
 //            Navigation.findNavController(it)
 //                .navigate(R.id.language)

@@ -16,7 +16,7 @@ import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
-import com.example.buglibrary.MainActivity
+import com.example.buglibrary.SDKActivity
 import com.example.buglibrary.R
 import com.example.buglibrary.helper.AppConstant
 import kotlin.random.Random
@@ -62,7 +62,7 @@ class DCAANotificationService : FirebaseMessagingService() {
 
             override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
                 val intent =
-                    Intent(this@DCAANotificationService, MainActivity::class.java)
+                    Intent(this@DCAANotificationService, SDKActivity::class.java)
                 intent.putExtra(AppConstant.NOTIFICATION_TYPE, "notification")
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                 val pendingIntent = PendingIntent.getActivity(
@@ -107,7 +107,7 @@ class DCAANotificationService : FirebaseMessagingService() {
     }
 
     private fun sendNotification(title: String, messageBody: String) {
-        val intent = Intent(this, MainActivity::class.java)
+        val intent = Intent(this, SDKActivity::class.java)
         intent.putExtra(AppConstant.NOTIFICATION_TYPE, "notification")
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         val pendingIntent = PendingIntent.getActivity(

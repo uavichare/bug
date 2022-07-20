@@ -16,7 +16,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.common.api.ApiException
-import com.example.buglibrary.MainActivity
+import com.example.buglibrary.SDKActivity
 import com.example.buglibrary.R
 import com.example.buglibrary.databinding.SignUpFragmentBinding
 import com.example.buglibrary.utils.CommonUtils
@@ -28,7 +28,7 @@ class SignupFragment : Fragment() {
 
     private var _binding: SignUpFragmentBinding? = null
     private val binding get() = _binding!!
-    private lateinit var mainActivity: MainActivity
+    private lateinit var mainActivity: SDKActivity
 
 
     //    private lateinit var userSignUpData: UserDetails
@@ -39,7 +39,7 @@ class SignupFragment : Fragment() {
     ): View {
         _binding =
             SignUpFragmentBinding.inflate(inflater, container, false)
-        mainActivity = activity as MainActivity
+        mainActivity = activity as SDKActivity
         binding.textSignIn.text = HtmlCompat.fromHtml(
             getString(R.string.Already_have_an_account_Sign_In),
             HtmlCompat.FROM_HTML_MODE_LEGACY

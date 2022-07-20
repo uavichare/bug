@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.buglibrary.MainActivity
+import com.example.buglibrary.SDKActivity
 import com.example.buglibrary.databinding.FragmentLangItemBinding
 import com.example.buglibrary.manager.LocaleManager
 
@@ -68,7 +68,7 @@ class LangAdapter(private val strLocale: List<String>) :
                 }
             }
             LocaleManager.setNewLocale(itemView.context, language)
-            val i = Intent(itemView.context, MainActivity::class.java)
+            val i = Intent(itemView.context, SDKActivity::class.java)
             itemView.context.startActivity(i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK))
         }
     }

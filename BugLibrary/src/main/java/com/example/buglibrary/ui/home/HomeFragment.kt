@@ -38,7 +38,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.indooratlas.android.sdk.IALocation
 import com.indooratlas.android.sdk.IAWayfindingRequest
 import com.example.buglibrary.AlFahidiWayFindingApp
-import com.example.buglibrary.MainActivity
+import com.example.buglibrary.SDKActivity
 import com.example.buglibrary.R
 import com.example.buglibrary.data.Poi
 import com.example.buglibrary.databinding.FragmentHomeBinding
@@ -104,7 +104,7 @@ class HomeFragment : Fragment(), Injectable,
     private var etaTotalTime: String = ""
     private var currentLocation: Location? = null
     private lateinit var app: AlFahidiWayFindingApp
-    private lateinit var mainActivity: MainActivity
+    private lateinit var mainActivity: SDKActivity
     private var isHideToolbar = false
     private var poiFeature: Feature? = null
     @ExperimentalCoroutinesApi
@@ -127,7 +127,7 @@ class HomeFragment : Fragment(), Injectable,
             _binding = FragmentHomeBinding.inflate(inflater, container, false)
             binding.mapView.onCreate(savedInstanceState)
 //            poi = HomeFragmentArgs.fromBundle(requireArguments()).drawRoute
-            mainActivity = activity as MainActivity
+            mainActivity = activity as SDKActivity
             binding.mapView.getMapAsync {
                 setMapBox(it)
             }
@@ -888,7 +888,7 @@ class HomeFragment : Fragment(), Injectable,
     override fun onResume() {
         super.onResume()
         binding.mapView.onResume()
-        if (activity is MainActivity && app.poi == null && !isHideToolbar) {
+        if (activity is SDKActivity && app.poi == null && !isHideToolbar) {
             mainActivity.setSearchVisibility(View.VISIBLE)
             mainActivity.setToolBarVisibility(View.VISIBLE)
         }

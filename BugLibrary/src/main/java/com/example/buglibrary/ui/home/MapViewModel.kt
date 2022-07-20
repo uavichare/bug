@@ -8,6 +8,9 @@ import androidx.lifecycle.ViewModel
 import com.indooratlas.android.sdk.*
 import com.example.buglibrary.data.NavDetails
 import com.example.buglibrary.data.Poi
+import com.example.buglibrary.helper.AppConstant
+import com.example.buglibrary.helper.PreferenceHelper
+import com.example.buglibrary.helper.PreferenceHelper.get
 import com.example.buglibrary.intelligentprovider.Jarvis
 import com.mapbox.mapboxsdk.geometry.LatLng
 import org.json.JSONArray
@@ -42,15 +45,58 @@ class MapViewModel @Inject constructor() : ViewModel(),
     }
 
     fun setupIA(context: Context) {
-        iaLocationManager = IALocationManager.create(context)
 
-        tts = TextToSpeech(context, this)
-        iaLocationManager?.requestLocationUpdates(IALocationRequest.create(), this)
-        iaLocationManager?.registerOrientationListener(IAOrientationRequest(5.0, 5.0), this)
-        iaLocationManager?.registerRegionListener(this)
-        initSmartRoute(this, context)
-        setIALocation(25.264181, 55.300155, 0)
-        iaLocationManager?.lockIndoors(false)
+        val extras = Bundle(2)
+
+
+
+/*
+       extras.putString(
+            IALocationManager.EXTRA_API_KEY,"675933d8-45d2-4397-aef6-80bcf5861fed")
+        extras.putString(
+            IALocationManager.EXTRA_API_SECRET,
+            "rxNJoW/xt1iVy3BA5c0r69tjf6097VxsW9dz56JzOnQsRbcD3qGDyKT0e3iA1XGEpn2N5JHL7FpgZSyuF5BKSXXWqJ+Y2nWqr8lXa5lmECBYOxiZzXnCih5Ozljgag=="
+        )
+*/
+
+
+
+
+        // Toast.makeText(context,pref[AppConstant.INDOOR_ATlAS_APIKEY], Toast.LENGTH_LONG).show()
+
+        try {
+            val pref = PreferenceHelper.defaultPrefs(context)
+
+           val apiKey:String?= pref[AppConstant.INDOOR_ATlAS_APIKEY]
+            val secretKey:String?= pref[AppConstant.INDOOR_ATlAS_SECRETKEY]
+
+            if(apiKey?.isEmpty() == true||secretKey?.isEmpty()==true)
+            {
+                return
+            }
+            extras.putString(
+                IALocationManager.EXTRA_API_KEY,apiKey)
+            extras.putString(
+                IALocationManager.EXTRA_API_SECRET,secretKey
+            )
+
+
+            try {
+                iaLocationManager = IALocationManager.create(context,extras)
+            } catch (e: Exception) {
+                e.toString()
+            }
+
+            tts = TextToSpeech(context, this)
+            iaLocationManager?.requestLocationUpdates(IALocationRequest.create(), this)
+            iaLocationManager?.registerOrientationListener(IAOrientationRequest(5.0, 5.0), this)
+            iaLocationManager?.registerRegionListener(this)
+            initSmartRoute(this, context)
+            setIALocation(25.264181, 55.300155, 0)
+            iaLocationManager?.lockIndoors(false)
+        } catch (e: Exception) {
+            e.toString()
+        }
     }
 
     override fun onLocationChanged(location: IALocation?) {

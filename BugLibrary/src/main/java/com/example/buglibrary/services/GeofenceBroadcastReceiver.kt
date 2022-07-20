@@ -13,7 +13,7 @@ import android.util.Log
 import androidx.core.app.NotificationCompat
 import com.google.android.gms.location.Geofence
 import com.google.android.gms.location.GeofencingEvent
-import com.example.buglibrary.MainActivity
+import com.example.buglibrary.SDKActivity
 import com.example.buglibrary.R
 import com.example.buglibrary.helper.AppConstant
 import com.example.buglibrary.helper.PreferenceHelper
@@ -88,7 +88,7 @@ class GeofenceBroadcastReceiver : BroadcastReceiver() {
     }
 
     private fun sendNotification(context: Context?, title: String, messageBody: String) {
-        val intent = Intent(context, MainActivity::class.java)
+        val intent = Intent(context, SDKActivity::class.java)
 //        intent.putExtra(AppConstant.NOTIFICATION_TYPE, "notification")
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         val pendingIntent = PendingIntent.getActivity(

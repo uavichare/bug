@@ -9,6 +9,9 @@ object AppConstant {
     //const val BASE_URL_PRODUCTION = "http://dcaa.wisefly.in/"
 
     const val BASE_URL_PRODUCTION = "https://wayfinding.dubaiculture.gov.ae/"
+    val INDOOR_ATlAS_APIKEY = "indoor_atlas_key"
+    val INDOOR_ATlAS_SECRETKEY = "indoor_atlas_secret_key"
+    val MAPBOX_TOKEN = "mapbox_token"
 
 
     const val PINNED_BASE_URL_DEV: String = "development.wisefly.in"
