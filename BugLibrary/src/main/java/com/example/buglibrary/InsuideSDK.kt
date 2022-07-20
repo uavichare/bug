@@ -6,13 +6,13 @@ import android.content.Intent
 public class InsuideSDK {
 
 
-     public fun authenticationInsuideIndoor(apiKey:String,apiSecretKey:String)
+     public fun authenticationInsuideIndoor(context:Context,apiKey:String,apiSecretKey:String)
     {
-        SDKActivity().setIAKEYS(apiKey,apiSecretKey)
+        SDKActivity().setIAKEYS(context,apiKey,apiSecretKey)
     }
-    public fun authenticationOfMapbox(token:String)
+    public fun authenticationOfMapbox(context:Context,token:String)
     {
-        SDKActivity().callMapbox(token)
+        SDKActivity().callMapbox(context,token)
     }
    public fun OpenSdkScreen(c: Context) {
         var intent: Intent? = null

@@ -85,7 +85,6 @@ class SDKActivity : AppCompatActivity(), HasAndroidInjector, PermissionsListener
     lateinit var geofencingClient: GeofencingClient
     private var mGeofenceList: ArrayList<Geofence>? = null
     lateinit var  navController:NavController
-    lateinit var pref :SharedPreferences;
     /**
      * Map for storing information about airports in the San Francisco bay area.
      */
@@ -103,9 +102,8 @@ class SDKActivity : AppCompatActivity(), HasAndroidInjector, PermissionsListener
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         //  viewModel = injectViewModel(viewModelProvider)
-        pref=PreferenceHelper.defaultPrefs(this)
 
-        Mapbox.getInstance(this,pref[AppConstant.MAPBOX_TOKEN])
+        Mapbox.getInstance(this,sharePreferenceObject(this)[AppConstant.MAPBOX_TOKEN])
         BAY_AREA_LANDMARKS["DCAA"] = LatLng(25.264106314899042, 55.30021935514805)
         BAY_AREA_LANDMARKS["home"] = LatLng(20.5448449, 74.5416257)
         mGeofenceList = ArrayList()
@@ -683,12 +681,12 @@ class SDKActivity : AppCompatActivity(), HasAndroidInjector, PermissionsListener
 */
     }
 
-    fun setIAKEYS(apiKey:String,secretKey:String) {
+    fun setIAKEYS(context: Context,apiKey:String,secretKey:String) {
        // pref[AppConstant.INDOOR_ATlAS_APIKEY] ="675933d8-45d2-4397-aef6-80bcf5861fed"
         //pref[AppConstant.INDOOR_ATlAS_SECRETKEY] ="rxNJoW/xt1iVy3BA5c0r69tjf6097VxsW9dz56JzOnQsRbcD3qGDyKT0e3iA1XGEpn2N5JHL7FpgZSyuF5BKSXXWqJ+Y2nWqr8lXa5lmECBYOxiZzXnCih5Ozljgag=="
 
-        pref[AppConstant.INDOOR_ATlAS_APIKEY] =apiKey
-        pref[AppConstant.INDOOR_ATlAS_SECRETKEY] =secretKey
+        sharePreferenceObject(context)[AppConstant.INDOOR_ATlAS_APIKEY] =apiKey
+        sharePreferenceObject(context)[AppConstant.INDOOR_ATlAS_SECRETKEY] =secretKey
 
         // val navController by lazy { findNavController(R.id.nav_host_fragment) }
 
@@ -706,16 +704,20 @@ class SDKActivity : AppCompatActivity(), HasAndroidInjector, PermissionsListener
 
 
 
-    fun callMapbox(token:String)
+    fun callMapbox(context: Context,token:String)
     {
-        pref[AppConstant.MAPBOX_TOKEN] =token
 
+        sharePreferenceObject(context)[AppConstant.MAPBOX_TOKEN] =token
 
 
 
     }
 
 
+    fun sharePreferenceObject(context: Context): SharedPreferences {
+       return PreferenceHelper.defaultPrefs(context)
+
+    }
 
 
 
