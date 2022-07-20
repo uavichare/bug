@@ -47,30 +47,11 @@ class MapViewModel @Inject constructor() : ViewModel(),
     fun setupIA(context: Context) {
 
         val extras = Bundle(2)
-
-
-
-/*
-       extras.putString(
-            IALocationManager.EXTRA_API_KEY,"675933d8-45d2-4397-aef6-80bcf5861fed")
-        extras.putString(
-            IALocationManager.EXTRA_API_SECRET,
-            "rxNJoW/xt1iVy3BA5c0r69tjf6097VxsW9dz56JzOnQsRbcD3qGDyKT0e3iA1XGEpn2N5JHL7FpgZSyuF5BKSXXWqJ+Y2nWqr8lXa5lmECBYOxiZzXnCih5Ozljgag=="
-        )
-*/
-
-
-
-
-        // Toast.makeText(context,pref[AppConstant.INDOOR_ATlAS_APIKEY], Toast.LENGTH_LONG).show()
-
         try {
             val pref = PreferenceHelper.defaultPrefs(context)
-
            val apiKey:String?= pref[AppConstant.INDOOR_ATlAS_APIKEY]
             val secretKey:String?= pref[AppConstant.INDOOR_ATlAS_SECRETKEY]
-
-            if(apiKey?.isEmpty() == true||secretKey?.isEmpty()==true)
+            if(apiKey?.isEmpty() == true||apiKey==null||secretKey==null || secretKey.isEmpty())
             {
                 return
             }
@@ -79,14 +60,7 @@ class MapViewModel @Inject constructor() : ViewModel(),
             extras.putString(
                 IALocationManager.EXTRA_API_SECRET,secretKey
             )
-
-
-            try {
-                iaLocationManager = IALocationManager.create(context,extras)
-            } catch (e: Exception) {
-                e.toString()
-            }
-
+            iaLocationManager = IALocationManager.create(context,extras)
             tts = TextToSpeech(context, this)
             iaLocationManager?.requestLocationUpdates(IALocationRequest.create(), this)
             iaLocationManager?.registerOrientationListener(IAOrientationRequest(5.0, 5.0), this)

@@ -48,12 +48,14 @@
             android:value="optional" />
 
         <!--Indoor atlas-->
+<!--
         <meta-data
             android:name="com.indooratlas.android.sdk.API_KEY"
             android:value="@string/ia_api_key" />
         <meta-data
             android:name="com.indooratlas.android.sdk.API_SECRET"
             android:value="@string/ia_secret_key" />
+-->
 
         <!--facebook-->
         <meta-data
