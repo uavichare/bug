@@ -5,6 +5,7 @@ import android.app.Activity
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
@@ -84,13 +85,13 @@ class SDKActivity : AppCompatActivity(), HasAndroidInjector, PermissionsListener
     lateinit var geofencingClient: GeofencingClient
     private var mGeofenceList: ArrayList<Geofence>? = null
     lateinit var  navController:NavController
+    lateinit var pref :SharedPreferences;
     /**
      * Map for storing information about airports in the San Francisco bay area.
      */
 
 
     var BAY_AREA_LANDMARKS: HashMap<String, LatLng> = HashMap()
-    val pref = PreferenceHelper.defaultPrefs(this)
 
 
     override fun androidInjector(): AndroidInjector<Any> {
@@ -102,6 +103,7 @@ class SDKActivity : AppCompatActivity(), HasAndroidInjector, PermissionsListener
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         //  viewModel = injectViewModel(viewModelProvider)
+        pref=PreferenceHelper.defaultPrefs(this)
 
         Mapbox.getInstance(this,pref[AppConstant.MAPBOX_TOKEN])
         BAY_AREA_LANDMARKS["DCAA"] = LatLng(25.264106314899042, 55.30021935514805)
