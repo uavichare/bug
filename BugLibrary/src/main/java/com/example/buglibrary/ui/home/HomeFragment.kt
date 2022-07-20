@@ -242,7 +242,7 @@ class HomeFragment : Fragment(), Injectable,
         ) {
 
 
-            //enableLocationComponent()
+            enableLocationComponent()
 
 
             homeViewModel.mapPoi(getString(R.string.app_token))
