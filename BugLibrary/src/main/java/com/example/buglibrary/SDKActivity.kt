@@ -31,6 +31,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.buglibrary.data.Poi
+import com.example.buglibrary.databinding.DubaiActivityMainBinding
 import com.example.buglibrary.helper.AppConstant
 import com.example.buglibrary.helper.PreferenceHelper
 import com.example.buglibrary.helper.PreferenceHelper.set
@@ -43,7 +44,6 @@ import com.google.android.gms.location.GeofencingRequest
 import com.google.android.gms.location.LocationServices
 import com.google.firebase.dynamiclinks.DynamicLink
 import com.google.firebase.dynamiclinks.FirebaseDynamicLinks
-import com.example.buglibrary.databinding.ActivityMainBinding
 import com.example.buglibrary.services.GeofenceBroadcastReceiver
 import com.example.buglibrary.ui.home.HomeFragment
 import com.example.buglibrary.ui.home.SearchAdapter
@@ -73,7 +73,7 @@ class SDKActivity : AppCompatActivity(), HasAndroidInjector, PermissionsListener
 
     @ExperimentalCoroutinesApi
     private var searchChannel = BroadcastChannel<String>(1)
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var binding: DubaiActivityMainBinding
 
     @Inject
     lateinit var viewModelProvider: ViewModelProvider.Factory
@@ -112,7 +112,7 @@ class SDKActivity : AppCompatActivity(), HasAndroidInjector, PermissionsListener
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = DubaiActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         //  viewModel = injectViewModel(viewModelProvider)
        // callMapbox(this,getString(R.string.mapbox_access_token))

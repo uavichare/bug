@@ -903,7 +903,7 @@ class HomeFragment : Fragment(), Injectable,
         }
         mapViewModel.iaLocation.observe(viewLifecycleOwner) {
 
-            Toast.makeText(requireContext(),it?.longitude.toString(),Toast.LENGTH_LONG).show()
+          //  Toast.makeText(requireContext(),it?.longitude.toString(),Toast.LENGTH_LONG).show()
             currentLocation = it?.toLocation()
             lifecycleScope.launch {
                 if (poiList != null) {
